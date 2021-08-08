@@ -14,3 +14,11 @@ html {
 img {
   width: 100px;
 }
+
+// put the main blob in the top left, and send to back
+.main-blob {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
