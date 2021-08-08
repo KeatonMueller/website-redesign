@@ -1,3 +1,6 @@
+// import google fonts
+@import url("https://fonts.googleapis.com/css2?family=Sansita:ital,wght@1,800&family=Sulphur+Point&display=swap");
+
 html {
   font-size: 62.5%;
   height: 100%;
@@ -11,6 +14,113 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+  min-width: 300px;
+}
+
+h1 {
+  font-family: "Sansita", sans-serif;
+  font-size: 6rem;
+}
+
+h2 {
+  font-family: "Sansita", sans-serif;
+  font-size: 4rem;
+}
+
+h3 {
+  font-family: "Sulphur Point", sans-serif;
+  font-size: 3rem;
+}
+
+h4 {
+  font-family: "Sulphur Point", sans-serif;
+  font-size: 2rem;
+}
+
+p {
+  font-family: "Sulphur Point", sans-serif;
+}
+
+// header styles
+header {
+  background: #009fcb;
+  height: 8rem;
+  padding: 2rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: white;
+    // border: 1px solid yellow;
+  }
+
+  ul {
+    // border: 1px solid green;
+    list-style: none;
+    display: flex;
+
+    li {
+      display: flex;
+      justify-content: center;
+      margin: 1rem;
+    }
+
+    svg {
+      width: 2rem;
+      path {
+        fill: white;
+      }
+    }
+  }
+}
+
+// about styles
+.about {
+  padding-top: 3rem;
+  padding-left: 5rem;
+
+  height: 75vw;
+  margin-bottom: 10vw;
+
+  // hide headshot unless screen is big enough
+  .headshot {
+    display: none;
+  }
+
+  .about-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      color: white;
+      margin-top: 2rem;
+      margin-bottom: 6rem;
+    }
+
+    h3 {
+      color: white;
+      font-size: 3rem;
+      margin-bottom: 4rem;
+      max-width: 25ch;
+    }
+  }
+}
+
+// skills styles
+.skills {
+  height: 40rem;
+  background: red;
+  .water-1,
+  .water-2 {
+    width: 100%;
+  }
+}
+
 img {
   width: 100px;
 }
@@ -20,5 +130,7 @@ img {
   z-index: -1;
   position: absolute;
   left: 0;
-  top: 0;
+  top: calc(8rem - 1px);
+
+  width: 105vw;
 }

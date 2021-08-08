@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita:ital,wght@1,800&family=Sulphur+Point&display=swap");
 html {
   font-size: 62.5%;
   height: 100%;
@@ -12,6 +13,125 @@ html {
           box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+  min-width: 300px;
+}
+
+h1 {
+  font-family: "Sansita", sans-serif;
+  font-size: 6rem;
+}
+
+h2 {
+  font-family: "Sansita", sans-serif;
+  font-size: 4rem;
+}
+
+h3 {
+  font-family: "Sulphur Point", sans-serif;
+  font-size: 3rem;
+}
+
+h4 {
+  font-family: "Sulphur Point", sans-serif;
+  font-size: 2rem;
+}
+
+p {
+  font-family: "Sulphur Point", sans-serif;
+}
+
+header {
+  background: #009fcb;
+  height: 8rem;
+  padding: 2rem 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+header ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem;
+}
+
+header ul svg {
+  width: 2rem;
+}
+
+header ul svg path {
+  fill: white;
+}
+
+.about {
+  padding-top: 3rem;
+  padding-left: 5rem;
+  height: 75vw;
+  margin-bottom: 10vw;
+}
+
+.about .headshot {
+  display: none;
+}
+
+.about .about-content {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.about .about-content h1 {
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+}
+
+.about .about-content h3 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  max-width: 25ch;
+}
+
+.skills {
+  height: 40rem;
+  background: red;
+}
+
+.skills .water-1,
+.skills .water-2 {
+  width: 100%;
+}
+
 img {
   width: 100px;
 }
@@ -20,6 +140,7 @@ img {
   z-index: -1;
   position: absolute;
   left: 0;
-  top: 0;
+  top: calc(8rem - 1px);
+  width: 105vw;
 }
 /*# sourceMappingURL=style.css.map */
