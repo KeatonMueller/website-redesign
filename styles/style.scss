@@ -1,6 +1,10 @@
 // import google fonts
 @import url("https://fonts.googleapis.com/css2?family=Sansita:ital,wght@1,800&family=Sulphur+Point&display=swap");
 
+$clr-primary-400: #009fcb;
+$clr-primary-900: #002833;
+$clr-neutral: #ffffff;
+
 html {
     font-size: 62.5%;
     height: 100%;
@@ -15,37 +19,44 @@ html {
 }
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
     min-width: 300px;
 }
 
-h1 {
-    font-family: "Sansita", sans-serif;
-    font-size: 6rem;
-}
-
+h1,
 h2 {
     font-family: "Sansita", sans-serif;
-    font-size: 4rem;
 }
 
-h3 {
-    font-family: "Sulphur Point", sans-serif;
-    font-size: 3rem;
-}
-
-h4 {
-    font-family: "Sulphur Point", sans-serif;
-    font-size: 2rem;
-}
-
+h3,
+h4,
 p {
     font-family: "Sulphur Point", sans-serif;
 }
 
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.8rem;
+}
+
 // header styles
 header {
-    background: #009fcb;
+    background: $clr-primary-400;
     height: 8rem;
     padding: 2rem 5rem;
     display: flex;
@@ -54,12 +65,10 @@ header {
 
     a {
         text-decoration: none;
-        color: white;
-        // border: 1px solid yellow;
+        color: $clr-neutral;
     }
 
     ul {
-        // border: 1px solid green;
         list-style: none;
         display: flex;
 
@@ -72,7 +81,7 @@ header {
         svg {
             width: 2rem;
             path {
-                fill: white;
+                fill: $clr-neutral;
             }
         }
     }
@@ -86,6 +95,16 @@ header {
     height: 75vw;
     margin-bottom: 10vw;
 
+    // put the main blob in the top left, and send to back
+    .main-blob {
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        top: calc(8rem - 1px);
+
+        width: 105vw;
+    }
+
     // hide headshot unless screen is big enough
     .headshot {
         display: none;
@@ -97,12 +116,12 @@ header {
         flex-direction: column;
 
         h1 {
-            color: white;
+            color: $clr-neutral;
             margin-bottom: 4rem;
         }
 
         h3 {
-            color: white;
+            color: $clr-neutral;
             font-size: 3rem;
             margin-bottom: 4rem;
             max-width: 25ch;
@@ -112,26 +131,128 @@ header {
 
 // skills styles
 .skills {
-    height: 750px;
-    background: red;
-    padding-top: 3rem;
-    padding-left: 5rem;
+    height: 95rem;
+    position: relative;
+
+    h3 {
+        padding: 5rem;
+        max-width: 35ch;
+    }
+
+    // position skills in a grid
+    .skill-icons {
+        padding: 3rem 5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .skill-typescript {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    .skill-react {
+        grid-row: 1/2;
+        grid-column: 3/4;
+    }
+    .skill-java {
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+    .skill-python {
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+    .skill-cpp {
+        grid-row: 3/4;
+        grid-column: 3/4;
+    }
+
     .water-1,
     .water-2 {
+        z-index: 1;
         width: 100%;
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+    }
+
+    .water-2 {
+        display: none;
+    }
+
+    .boat {
+        z-index: -1;
+        width: 30rem;
+        position: absolute;
+        bottom: 1rem;
+        right: 3rem;
     }
 }
 
-img {
-    width: 100px;
+// projects styles
+.projects {
+    background: $clr-primary-400;
+
+    h3 {
+        color: $clr-neutral;
+        padding: 3rem 5rem 0rem 5rem;
+    }
+
+    .project {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .project-text-box {
+        position: relative;
+        margin: 3rem 5rem;
+        padding: 2rem 3rem;
+        padding: 2rem 3rem 5rem 3rem;
+        background: $clr-neutral;
+        border-radius: 2rem;
+    }
+
+    .project-links {
+        position: absolute;
+        bottom: 2rem;
+        right: 3rem;
+
+        display: flex;
+
+        img {
+            width: 2rem;
+            margin-left: 1rem;
+        }
+    }
+
+    .project-img {
+        width: 20rem;
+    }
 }
 
-// put the main blob in the top left, and send to back
-.main-blob {
-    z-index: -1;
-    position: absolute;
-    left: 0;
-    top: calc(8rem - 1px);
+// contact styles
+.contact {
+    background: $clr-primary-400;
+    padding-bottom: 5rem;
 
-    width: 105vw;
+    h3 {
+        color: $clr-neutral;
+        text-align: center;
+        padding: 3rem 5rem 1rem 5rem;
+    }
+
+    h4 {
+        color: $clr-neutral;
+        text-align: center;
+        margin: 3rem 5rem;
+
+        a {
+            font-family: "Sansita", sans-serif;
+            text-decoration: none;
+            color: $clr-primary-900;
+            display: block;
+        }
+    }
 }
