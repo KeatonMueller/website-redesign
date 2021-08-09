@@ -131,7 +131,7 @@ header {
 
 // skills styles
 .skills {
-    height: 95rem;
+    height: 90rem;
     position: relative;
 
     h3 {
@@ -168,13 +168,14 @@ header {
         grid-column: 3/4;
     }
 
+    // these svgs can be finicky, make sure they span the width
     .water-1,
     .water-2 {
         z-index: 1;
-        width: 100%;
+        width: calc(100vw + 4px);
         position: absolute;
         bottom: -1px;
-        left: 0;
+        left: -2px;
     }
 
     .water-2 {
@@ -185,7 +186,7 @@ header {
         z-index: -1;
         width: 30rem;
         position: absolute;
-        bottom: 1rem;
+        bottom: -3rem;
         right: 3rem;
     }
 }
@@ -193,6 +194,7 @@ header {
 // projects styles
 .projects {
     background: $clr-primary-400;
+    padding-top: 5rem;
 
     h3 {
         color: $clr-neutral;
@@ -252,6 +254,7 @@ header {
             font-family: "Sansita", sans-serif;
             text-decoration: none;
             color: $clr-primary-900;
+            color: white;
             display: block;
         }
     }

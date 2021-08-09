@@ -137,7 +137,7 @@ header ul svg path {
 }
 
 .skills {
-  height: 95rem;
+  height: 90rem;
   position: relative;
 }
 
@@ -204,10 +204,10 @@ header ul svg path {
 .skills .water-1,
 .skills .water-2 {
   z-index: 1;
-  width: 100%;
+  width: calc(100vw + 4px);
   position: absolute;
   bottom: -1px;
-  left: 0;
+  left: -2px;
 }
 
 .skills .water-2 {
@@ -218,12 +218,13 @@ header ul svg path {
   z-index: -1;
   width: 30rem;
   position: absolute;
-  bottom: 1rem;
+  bottom: -3rem;
   right: 3rem;
 }
 
 .projects {
   background: #009fcb;
+  padding-top: 5rem;
 }
 
 .projects h3 {
@@ -292,6 +293,7 @@ header ul svg path {
   font-family: "Sansita", sans-serif;
   text-decoration: none;
   color: #002833;
+  color: white;
   display: block;
 }
 /*# sourceMappingURL=style.css.map */
