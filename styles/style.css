@@ -111,8 +111,7 @@ header ul svg path {
 
 .about .about-content h1 {
   color: white;
-  margin-top: 2rem;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 .about .about-content h3 {
@@ -123,8 +122,10 @@ header ul svg path {
 }
 
 .skills {
-  height: 40rem;
-  background: red;
+  height: 750px;
+  background: #1d3c6e;
+  padding-top: 3rem;
+  padding-left: 5rem;
 }
 
 .skills .water-1,
