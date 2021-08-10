@@ -50,7 +50,6 @@ p {
 }
 
 header {
-  background: #009fcb;
   height: 8rem;
   padding: 2rem 5rem;
   display: -webkit-box;
@@ -95,9 +94,10 @@ header ul svg path {
 }
 
 .about {
+  position: relative;
   padding-top: 3rem;
   padding-left: 5rem;
-  height: 75vw;
+  height: 35rem;
   margin-bottom: 10vw;
 }
 
@@ -105,8 +105,9 @@ header ul svg path {
   z-index: -1;
   position: absolute;
   left: 0;
-  top: calc(8rem - 1px);
+  top: calc(-8rem - 1px);
   width: 105vw;
+  height: 45rem;
 }
 
 .about .headshot {
@@ -139,6 +140,13 @@ header ul svg path {
 .skills {
   height: 90rem;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .skills h3 {
@@ -150,10 +158,13 @@ header ul svg path {
   padding: 3rem 5rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
+  -ms-grid-row-align: center;
+      align-self: center;
+  width: 90%;
+  -ms-grid-columns: 10rem 1fr 10rem 1fr 10rem;
+      grid-template-columns: 10rem 1fr 10rem 1fr 10rem;
+  -ms-grid-rows: 10rem 10rem 10rem;
+      grid-template-rows: 10rem 10rem 10rem;
 }
 
 .skills .skill-typescript {
@@ -169,18 +180,18 @@ header ul svg path {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
-  -ms-grid-column: 3;
+  -ms-grid-column: 5;
   -ms-grid-column-span: 1;
-  grid-column: 3/4;
+  grid-column: 5/6;
 }
 
 .skills .skill-java {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
-  -ms-grid-column: 2;
+  -ms-grid-column: 3;
   -ms-grid-column-span: 1;
-  grid-column: 2/3;
+  grid-column: 3/4;
 }
 
 .skills .skill-python {
@@ -196,18 +207,18 @@ header ul svg path {
   -ms-grid-row: 3;
   -ms-grid-row-span: 1;
   grid-row: 3/4;
-  -ms-grid-column: 3;
+  -ms-grid-column: 5;
   -ms-grid-column-span: 1;
-  grid-column: 3/4;
+  grid-column: 5/6;
 }
 
 .skills .water-1,
 .skills .water-2 {
   z-index: 1;
-  width: calc(100vw + 4px);
+  width: calc(100vw + 8px);
   position: absolute;
   bottom: -1px;
-  left: -2px;
+  left: -4px;
 }
 
 .skills .water-2 {
@@ -243,12 +254,17 @@ header ul svg path {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 3rem 5rem;
+}
+
+.projects .project:last-child {
+  margin-bottom: 0;
+  padding-bottom: 3rem;
 }
 
 .projects .project-text-box {
   position: relative;
-  margin: 3rem 5rem;
-  padding: 2rem 3rem;
+  margin-top: 5rem;
   padding: 2rem 3rem 5rem 3rem;
   background: #ffffff;
   border-radius: 2rem;
@@ -295,5 +311,189 @@ header ul svg path {
   color: #002833;
   color: white;
   display: block;
+}
+
+@media screen and (min-width: 620px) {
+  header ul svg path {
+    fill: #000000;
+  }
+  .about .main-blob {
+    width: calc(min(70vw, 80rem));
+    height: 50rem;
+  }
+  .about .headshot {
+    display: unset;
+    position: absolute;
+    width: calc(max(20vw, min(100vw - 90rem, 30rem)));
+    right: 5rem;
+    top: 5rem;
+  }
+  .about .headshot .headshot-blob {
+    position: absolute;
+    width: 120%;
+    top: 7vw;
+  }
+  .about .headshot .headshot-img {
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+  }
+  .skills .boat {
+    bottom: 0rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .projects h3 {
+    text-align: center;
+  }
+  .projects .project-text-box {
+    margin-top: 0;
+  }
+  .projects .project:nth-child(even) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .projects .project:nth-child(even) .project-img {
+    margin-left: 3rem;
+  }
+  .projects .project:nth-child(odd) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .projects .project:nth-child(odd) .project-img {
+    margin-right: 3rem;
+  }
+  .projects .project:nth-child(2) .project-img {
+    -webkit-transform: translateY(-2rem);
+            transform: translateY(-2rem);
+  }
+  .contact h4 {
+    text-align: left;
+  }
+  .contact h4 a {
+    display: unset;
+  }
+}
+
+@media screen and (min-width: 930px) {
+  .about .about-content h3 {
+    max-width: unset;
+  }
+  .skills {
+    height: 50rem;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .skills h3 {
+    padding: 5rem;
+    max-width: 40ch;
+    line-height: 8rem;
+  }
+  .skills .skill-icons {
+    padding: unset;
+    position: absolute;
+    left: 5rem;
+    bottom: 13rem;
+    width: calc(100vw - 37rem);
+    -ms-grid-columns: 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
+        grid-template-columns: 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
+    -ms-grid-rows: 10rem;
+        grid-template-rows: 10rem;
+  }
+  .skills .skill-icons img {
+    width: 10rem;
+    margin: 0 1rem 0 1rem;
+  }
+  .skills .skill-icons .skill-typescript {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    -webkit-transform: translateY(2rem);
+            transform: translateY(2rem);
+  }
+  .skills .skill-icons .skill-react {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-column: 3/4;
+    -webkit-transform: translateY(4rem);
+            transform: translateY(4rem);
+  }
+  .skills .skill-icons .skill-java {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 5;
+    -ms-grid-column-span: 1;
+    grid-column: 5/6;
+    -webkit-transform: translateY(6rem);
+            transform: translateY(6rem);
+  }
+  .skills .skill-icons .skill-python {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 7;
+    -ms-grid-column-span: 1;
+    grid-column: 7/8;
+    -webkit-transform: translateY(3rem);
+            transform: translateY(3rem);
+  }
+  .skills .skill-icons .skill-cpp {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 9;
+    -ms-grid-column-span: 1;
+    grid-column: 9/10;
+  }
+  .skills .boat {
+    bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  header {
+    height: 10rem;
+    padding: 3rem 8rem;
+  }
+  .about {
+    padding-left: 8rem;
+  }
+  .about .main-blob {
+    top: calc(-10rem - 1px);
+  }
+  .about .headshot {
+    right: 8rem;
+  }
+  .skills h3 {
+    padding: 5rem 8rem 5rem 8rem;
+    max-width: 45ch;
+  }
+  .skills .boat {
+    bottom: 4rem;
+  }
+  .projects h3 {
+    padding: 3rem 8rem 0rem 8rem;
+  }
+  .projects .project {
+    margin: 5rem 8rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

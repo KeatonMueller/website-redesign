@@ -4,6 +4,7 @@
 $clr-primary-400: #009fcb;
 $clr-primary-900: #002833;
 $clr-neutral: #ffffff;
+$clr-dark: #000000;
 
 html {
     font-size: 62.5%;
@@ -56,7 +57,6 @@ p {
 
 // header styles
 header {
-    background: $clr-primary-400;
     height: 8rem;
     padding: 2rem 5rem;
     display: flex;
@@ -89,10 +89,11 @@ header {
 
 // about styles
 .about {
+    position: relative;
     padding-top: 3rem;
     padding-left: 5rem;
 
-    height: 75vw;
+    height: 35rem;
     margin-bottom: 10vw;
 
     // put the main blob in the top left, and send to back
@@ -100,9 +101,10 @@ header {
         z-index: -1;
         position: absolute;
         left: 0;
-        top: calc(8rem - 1px);
+        top: calc(-8rem - 1px);
 
         width: 105vw;
+        height: 45rem;
     }
 
     // hide headshot unless screen is big enough
@@ -133,6 +135,8 @@ header {
 .skills {
     height: 90rem;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     h3 {
         padding: 5rem;
@@ -143,8 +147,10 @@ header {
     .skill-icons {
         padding: 3rem 5rem;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        align-self: center;
+        width: 90%;
+        grid-template-columns: 10rem 1fr 10rem 1fr 10rem;
+        grid-template-rows: 10rem 10rem 10rem;
     }
 
     .skill-typescript {
@@ -153,11 +159,11 @@ header {
     }
     .skill-react {
         grid-row: 1/2;
-        grid-column: 3/4;
+        grid-column: 5/6;
     }
     .skill-java {
         grid-row: 2/3;
-        grid-column: 2/3;
+        grid-column: 3/4;
     }
     .skill-python {
         grid-row: 3/4;
@@ -165,17 +171,18 @@ header {
     }
     .skill-cpp {
         grid-row: 3/4;
-        grid-column: 3/4;
+        grid-column: 5/6;
     }
 
-    // these svgs can be finicky, make sure they span the width
+    // these svgs can be finicky. make sure they span the width
+    // by making them larger than the viewport
     .water-1,
     .water-2 {
         z-index: 1;
-        width: calc(100vw + 4px);
+        width: calc(100vw + 8px);
         position: absolute;
         bottom: -1px;
-        left: -2px;
+        left: -4px;
     }
 
     .water-2 {
@@ -205,12 +212,19 @@ header {
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
+        margin: 3rem 5rem;
+    }
+
+    // final project's margin it changed to padding
+    // so the background color extends
+    .project:last-child {
+        margin-bottom: 0;
+        padding-bottom: 3rem;
     }
 
     .project-text-box {
         position: relative;
-        margin: 3rem 5rem;
-        padding: 2rem 3rem;
+        margin-top: 5rem;
         padding: 2rem 3rem 5rem 3rem;
         background: $clr-neutral;
         border-radius: 2rem;
@@ -256,6 +270,192 @@ header {
             color: $clr-primary-900;
             color: white;
             display: block;
+        }
+    }
+}
+
+// introduce headshot for medium sized screens and up
+@media screen and (min-width: 620px) {
+    // change header icons to black
+    header ul svg path {
+        fill: $clr-dark;
+    }
+
+    .about {
+        // reshape blob
+        .main-blob {
+            width: calc(min(70vw, 80rem));
+            height: 50rem;
+        }
+
+        // add headshot
+        .headshot {
+            display: unset;
+
+            position: absolute;
+            width: calc(max(20vw, min(100vw - 90rem, 30rem)));
+            right: 5rem;
+            top: 5rem;
+
+            .headshot-blob {
+                position: absolute;
+                width: 120%;
+                top: 7vw;
+            }
+            .headshot-img {
+                position: absolute;
+                border-radius: 50%;
+                width: 100%;
+            }
+        }
+    }
+
+    // reposition boat
+    .skills .boat {
+        bottom: 0rem;
+    }
+}
+
+// change projects to rows and rearrange contact at 700px
+@media screen and (min-width: 700px) {
+    .projects {
+        h3 {
+            text-align: center;
+        }
+
+        .project-text-box {
+            margin-top: 0;
+        }
+        // projects are children 2, 3, 4 because the <h3> is child 1
+        .project:nth-child(even) {
+            flex-direction: row;
+            .project-img {
+                margin-left: 3rem;
+            }
+        }
+        .project:nth-child(odd) {
+            flex-direction: row-reverse;
+            .project-img {
+                margin-right: 3rem;
+            }
+        }
+
+        // adjust cube project img since it's slightly off center
+        .project:nth-child(2) .project-img {
+            transform: translateY(-2rem);
+        }
+    }
+
+    .contact {
+        h4 {
+            text-align: left;
+            a {
+                display: unset;
+            }
+        }
+    }
+}
+
+// rearrange skills at 930px
+@media screen and (min-width: 930px) {
+    // unset about max-width
+    .about .about-content h3 {
+        max-width: unset;
+    }
+
+    .skills {
+        height: 50rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            padding: 5rem;
+            max-width: 40ch;
+            line-height: 8rem;
+        }
+
+        // position skills in a grid
+        .skill-icons {
+            padding: unset;
+            position: absolute;
+            left: 5rem;
+            bottom: 13rem;
+            width: calc(100vw - 37rem);
+
+            grid-template-columns: 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
+            grid-template-rows: 10rem;
+
+            img {
+                width: 10rem;
+                margin: 0 1rem 0 1rem;
+            }
+
+            .skill-typescript {
+                grid-row: 1/2;
+                grid-column: 1/2;
+                transform: translateY(2rem);
+            }
+            .skill-react {
+                grid-row: 1/2;
+                grid-column: 3/4;
+                transform: translateY(4rem);
+            }
+            .skill-java {
+                grid-row: 1/2;
+                grid-column: 5/6;
+                transform: translateY(6rem);
+            }
+            .skill-python {
+                grid-row: 1/2;
+                grid-column: 7/8;
+                transform: translateY(3rem);
+            }
+            .skill-cpp {
+                grid-row: 1/2;
+                grid-column: 9/10;
+            }
+        }
+
+        .boat {
+            bottom: 2rem;
+        }
+    }
+}
+
+// resize margins at 1100px
+@media screen and (min-width: 1100px) {
+    header {
+        height: 10rem;
+        padding: 3rem 8rem;
+    }
+    .about {
+        padding-left: 8rem;
+
+        .main-blob {
+            top: calc(-10rem - 1px);
+        }
+
+        .headshot {
+            right: 8rem;
+        }
+    }
+    .skills {
+        h3 {
+            padding: 5rem 8rem 5rem 8rem;
+            max-width: 45ch;
+        }
+
+        .boat {
+            bottom: 4rem;
+        }
+    }
+    .projects {
+        h3 {
+            padding: 3rem 8rem 0rem 8rem;
+        }
+        .project {
+            margin: 5rem 8rem;
         }
     }
 }
