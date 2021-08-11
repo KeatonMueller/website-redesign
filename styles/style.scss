@@ -6,6 +6,10 @@ $clr-primary-900: #002833;
 $clr-neutral: #ffffff;
 $clr-dark: #000000;
 
+$margin-sm: 4rem;
+$margin-md: 8rem;
+$margin-lg: 12rem;
+
 html {
     font-size: 62.5%;
     height: 100%;
@@ -21,7 +25,7 @@ html {
 
 body {
     overflow-x: hidden;
-    min-width: 300px;
+    min-width: 375px;
 }
 
 h1,
@@ -58,7 +62,7 @@ p {
 // header styles
 header {
     height: 8rem;
-    padding: 2rem 5rem;
+    padding: 2rem $margin-sm;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,6 +81,10 @@ header {
             justify-content: center;
             margin: 1rem;
         }
+        // remove right margin from last icon
+        li:last-child {
+            margin-right: 0;
+        }
 
         svg {
             width: 2rem;
@@ -89,23 +97,8 @@ header {
 
 // about styles
 .about {
-    position: relative;
-    padding-top: 3rem;
-    padding-left: 5rem;
-
-    height: 35rem;
-    margin-bottom: 10vw;
-
-    // put the main blob in the top left, and send to back
-    .main-blob {
-        z-index: -1;
-        position: absolute;
-        left: 0;
-        top: calc(-8rem - 1px);
-
-        width: 105vw;
-        height: 45rem;
-    }
+    padding: 0 $margin-sm;
+    margin-bottom: 8rem;
 
     // hide headshot unless screen is big enough
     .headshot {
@@ -113,19 +106,29 @@ header {
     }
 
     .about-content {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
+        position: relative;
+        // put the main blob in the top left, and send to back
+        .main-blob {
+            z-index: -1;
+            position: absolute;
+            left: -$margin-sm;
+            // send to top of screen (header is 8rem)
+            top: calc(-8rem - 1px);
+
+            width: 105vw;
+            height: calc(100% + 13rem);
+        }
 
         h1 {
             color: $clr-neutral;
-            margin-bottom: 4rem;
+            padding-top: 1rem;
+            padding-bottom: 7rem;
         }
 
         h3 {
             color: $clr-neutral;
             font-size: 3rem;
-            margin-bottom: 4rem;
+            padding-bottom: 5rem;
             max-width: 25ch;
         }
     }
@@ -139,16 +142,16 @@ header {
     flex-direction: column;
 
     h3 {
-        padding: 5rem;
+        padding: $margin-sm;
         max-width: 35ch;
     }
 
     // position skills in a grid
     .skill-icons {
-        padding: 3rem 5rem;
+        padding: 3rem $margin-sm;
         display: grid;
         align-self: center;
-        width: 90%;
+        width: 100%;
         grid-template-columns: 10rem 1fr 10rem 1fr 10rem;
         grid-template-rows: 10rem 10rem 10rem;
     }
@@ -205,14 +208,14 @@ header {
 
     h3 {
         color: $clr-neutral;
-        padding: 3rem 5rem 0rem 5rem;
+        padding: 3rem $margin-sm 0rem $margin-sm;
     }
 
     .project {
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
-        margin: 3rem 5rem;
+        margin: 3rem $margin-sm;
     }
 
     // final project's margin it changed to padding
@@ -225,7 +228,7 @@ header {
     .project-text-box {
         position: relative;
         margin-top: 5rem;
-        padding: 2rem 3rem 5rem 3rem;
+        padding: 2rem 3rem 4rem 3rem;
         background: $clr-neutral;
         border-radius: 2rem;
     }
@@ -256,13 +259,13 @@ header {
     h3 {
         color: $clr-neutral;
         text-align: center;
-        padding: 3rem 5rem 1rem 5rem;
+        padding: 3rem $margin-sm 1rem $margin-sm;
     }
 
     h4 {
         color: $clr-neutral;
         text-align: center;
-        margin: 3rem 5rem;
+        margin: 3rem $margin-sm;
 
         a {
             font-family: "Sansita", sans-serif;
@@ -275,37 +278,52 @@ header {
 }
 
 // introduce headshot for medium sized screens and up
-@media screen and (min-width: 620px) {
+@media screen and (min-width: 650px) {
     // change header icons to black
     header ul svg path {
         fill: $clr-dark;
     }
 
     .about {
-        // reshape blob
-        .main-blob {
-            width: calc(min(70vw, 80rem));
-            height: 50rem;
+        display: grid;
+        grid-template-columns: calc(min(70vw, 80rem)) 1fr;
+        grid-template-rows: 1fr;
+
+        .about-content {
+            grid-row: 1/2;
+            grid-column: 1/2;
+            .main-blob {
+                width: 100%;
+            }
         }
 
         // add headshot
         .headshot {
             display: unset;
+            position: relative;
+            grid-row: 1/2;
+            grid-column: 2/3;
 
-            position: absolute;
-            width: calc(max(20vw, min(100vw - 90rem, 30rem)));
-            right: 5rem;
-            top: 5rem;
-
+            // padding-top: 5rem;
+            padding-top: calc(7rem - 5vw);
             .headshot-blob {
                 position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, calc(-50% + 5rem));
+                // transform: translate(-3vw, 7vw);
                 width: 120%;
-                top: 7vw;
+                max-width: 38.4rem;
             }
             .headshot-img {
-                position: absolute;
                 border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                // transform: translateX(-3vw);
                 width: 100%;
+                max-width: 32rem;
             }
         }
     }
@@ -358,11 +376,6 @@ header {
 
 // rearrange skills at 930px
 @media screen and (min-width: 930px) {
-    // unset about max-width
-    .about .about-content h3 {
-        max-width: unset;
-    }
-
     .skills {
         height: 50rem;
         position: relative;
@@ -370,7 +383,7 @@ header {
         flex-direction: column;
 
         h3 {
-            padding: 5rem;
+            padding: $margin-sm;
             max-width: 40ch;
             line-height: 8rem;
         }
@@ -379,7 +392,7 @@ header {
         .skill-icons {
             padding: unset;
             position: absolute;
-            left: 5rem;
+            left: $margin-sm;
             bottom: 13rem;
             width: calc(100vw - 37rem);
 
@@ -423,39 +436,120 @@ header {
     }
 }
 
-// resize margins at 1100px
+// allow about paragraph to grow at 970px
+@media screen and (min-width: 970px) {
+    .about .about-content h3 {
+        max-width: unset;
+    }
+}
+
+// resize everything at 1100px
 @media screen and (min-width: 1100px) {
+    html {
+        font-size: 80%;
+    }
+
     header {
         height: 10rem;
-        padding: 3rem 8rem;
+        padding: 3rem $margin-md;
     }
     .about {
-        padding-left: 8rem;
+        padding: 0 $margin-md;
+        grid-template-columns: calc(min(70%, 100rem)) 1fr;
 
-        .main-blob {
-            top: calc(-10rem - 1px);
-        }
-
-        .headshot {
-            right: 8rem;
+        .about-content {
+            .main-blob {
+                top: calc(-10rem - 1px);
+                left: -$margin-md;
+            }
+            h3 {
+                max-width: 25ch;
+            }
         }
     }
     .skills {
         h3 {
-            padding: 5rem 8rem 5rem 8rem;
+            padding: 5rem $margin-md 5rem $margin-md;
             max-width: 45ch;
+        }
+        .skill-icons {
+            left: $margin-md;
+        }
+
+        .skill-icons img {
+            width: 8.5rem;
         }
 
         .boat {
-            bottom: 4rem;
+            bottom: 3.5rem;
         }
     }
     .projects {
         h3 {
-            padding: 3rem 8rem 0rem 8rem;
+            padding: 3rem $margin-md 0rem $margin-md;
         }
         .project {
-            margin: 5rem 8rem;
+            margin: 5rem $margin-md;
+        }
+    }
+    .contact {
+        h3 {
+            padding: 3rem $margin-md 1rem $margin-md;
+        }
+        h4 {
+            margin: 3rem $margin-md;
+        }
+    }
+}
+
+// resize everything at 1600px
+@media screen and (min-width: 1600px) {
+    html {
+        font-size: 100%;
+    }
+
+    header {
+        padding: 3rem $margin-lg;
+    }
+    .about {
+        padding: 0 $margin-lg;
+
+        .about-content {
+            .main-blob {
+                top: calc(-10rem - 1px);
+                left: -$margin-lg;
+            }
+        }
+    }
+    .skills {
+        h3 {
+            padding: 5rem $margin-lg 5rem $margin-lg;
+            max-width: 50ch;
+        }
+        .skill-icons {
+            left: $margin-lg;
+        }
+    }
+    .projects {
+        h3 {
+            padding: 3rem $margin-lg 0rem $margin-lg;
+        }
+        .project {
+            margin: 10rem $margin-lg;
+        }
+        .project:nth-child(even) .project-img {
+            margin-left: 10rem;
+        }
+        .project:nth-child(odd) .project-img {
+            margin-right: 10rem;
+        }
+    }
+    .contact {
+        h3 {
+            padding: 3rem $margin-lg 1rem $margin-lg;
+        }
+        h4 {
+            margin: 5rem $margin-lg;
         }
     }
 }

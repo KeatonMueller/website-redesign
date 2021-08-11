@@ -15,7 +15,7 @@ html {
 
 body {
   overflow-x: hidden;
-  min-width: 300px;
+  min-width: 375px;
 }
 
 h1,
@@ -51,7 +51,7 @@ p {
 
 header {
   height: 8rem;
-  padding: 2rem 5rem;
+  padding: 2rem 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,6 +85,10 @@ header ul li {
   margin: 1rem;
 }
 
+header ul li:last-child {
+  margin-right: 0;
+}
+
 header ul svg {
   width: 2rem;
 }
@@ -94,20 +98,8 @@ header ul svg path {
 }
 
 .about {
-  position: relative;
-  padding-top: 3rem;
-  padding-left: 5rem;
-  height: 35rem;
-  margin-bottom: 10vw;
-}
-
-.about .main-blob {
-  z-index: -1;
-  position: absolute;
-  left: 0;
-  top: calc(-8rem - 1px);
-  width: 105vw;
-  height: 45rem;
+  padding: 0 4rem;
+  margin-bottom: 8rem;
 }
 
 .about .headshot {
@@ -115,25 +107,28 @@ header ul svg path {
 }
 
 .about .about-content {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  position: relative;
+}
+
+.about .about-content .main-blob {
+  z-index: -1;
+  position: absolute;
+  left: -4rem;
+  top: calc(-8rem - 1px);
+  width: 105vw;
+  height: calc(100% + 13rem);
 }
 
 .about .about-content h1 {
   color: #ffffff;
-  margin-bottom: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 7rem;
 }
 
 .about .about-content h3 {
   color: #ffffff;
   font-size: 3rem;
-  margin-bottom: 4rem;
+  padding-bottom: 5rem;
   max-width: 25ch;
 }
 
@@ -150,17 +145,17 @@ header ul svg path {
 }
 
 .skills h3 {
-  padding: 5rem;
+  padding: 4rem;
   max-width: 35ch;
 }
 
 .skills .skill-icons {
-  padding: 3rem 5rem;
+  padding: 3rem 4rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-row-align: center;
       align-self: center;
-  width: 90%;
+  width: 100%;
   -ms-grid-columns: 10rem 1fr 10rem 1fr 10rem;
       grid-template-columns: 10rem 1fr 10rem 1fr 10rem;
   -ms-grid-rows: 10rem 10rem 10rem;
@@ -240,7 +235,7 @@ header ul svg path {
 
 .projects h3 {
   color: #ffffff;
-  padding: 3rem 5rem 0rem 5rem;
+  padding: 3rem 4rem 0rem 4rem;
 }
 
 .projects .project {
@@ -254,7 +249,7 @@ header ul svg path {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 3rem 5rem;
+  margin: 3rem 4rem;
 }
 
 .projects .project:last-child {
@@ -265,7 +260,7 @@ header ul svg path {
 .projects .project-text-box {
   position: relative;
   margin-top: 5rem;
-  padding: 2rem 3rem 5rem 3rem;
+  padding: 2rem 3rem 4rem 3rem;
   background: #ffffff;
   border-radius: 2rem;
 }
@@ -296,13 +291,13 @@ header ul svg path {
 .contact h3 {
   color: #ffffff;
   text-align: center;
-  padding: 3rem 5rem 1rem 5rem;
+  padding: 3rem 4rem 1rem 4rem;
 }
 
 .contact h4 {
   color: #ffffff;
   text-align: center;
-  margin: 3rem 5rem;
+  margin: 3rem 4rem;
 }
 
 .contact h4 a {
@@ -313,30 +308,58 @@ header ul svg path {
   display: block;
 }
 
-@media screen and (min-width: 620px) {
+@media screen and (min-width: 650px) {
   header ul svg path {
     fill: #000000;
   }
-  .about .main-blob {
-    width: calc(min(70vw, 80rem));
-    height: 50rem;
+  .about {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: calc(min(70vw, 80rem)) 1fr;
+        grid-template-columns: calc(min(70vw, 80rem)) 1fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+  .about .about-content {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+  }
+  .about .about-content .main-blob {
+    width: 100%;
   }
   .about .headshot {
     display: unset;
-    position: absolute;
-    width: calc(max(20vw, min(100vw - 90rem, 30rem)));
-    right: 5rem;
-    top: 5rem;
+    position: relative;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+    padding-top: calc(7rem - 5vw);
   }
   .about .headshot .headshot-blob {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, calc(-50% + 5rem));
+            transform: translate(-50%, calc(-50% + 5rem));
     width: 120%;
-    top: 7vw;
+    max-width: 38.4rem;
   }
   .about .headshot .headshot-img {
-    position: absolute;
     border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     width: 100%;
+    max-width: 32rem;
   }
   .skills .boat {
     bottom: 0rem;
@@ -381,9 +404,6 @@ header ul svg path {
 }
 
 @media screen and (min-width: 930px) {
-  .about .about-content h3 {
-    max-width: unset;
-  }
   .skills {
     height: 50rem;
     position: relative;
@@ -396,14 +416,14 @@ header ul svg path {
             flex-direction: column;
   }
   .skills h3 {
-    padding: 5rem;
+    padding: 4rem;
     max-width: 40ch;
     line-height: 8rem;
   }
   .skills .skill-icons {
     padding: unset;
     position: absolute;
-    left: 5rem;
+    left: 4rem;
     bottom: 13rem;
     width: calc(100vw - 37rem);
     -ms-grid-columns: 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
@@ -468,32 +488,97 @@ header ul svg path {
   }
 }
 
+@media screen and (min-width: 970px) {
+  .about .about-content h3 {
+    max-width: unset;
+  }
+}
+
 @media screen and (min-width: 1100px) {
+  html {
+    font-size: 80%;
+  }
   header {
     height: 10rem;
     padding: 3rem 8rem;
   }
   .about {
-    padding-left: 8rem;
+    padding: 0 8rem;
+    -ms-grid-columns: calc(min(70%, 100rem)) 1fr;
+        grid-template-columns: calc(min(70%, 100rem)) 1fr;
   }
-  .about .main-blob {
+  .about .about-content .main-blob {
     top: calc(-10rem - 1px);
+    left: -8rem;
   }
-  .about .headshot {
-    right: 8rem;
+  .about .about-content h3 {
+    max-width: 25ch;
   }
   .skills h3 {
     padding: 5rem 8rem 5rem 8rem;
     max-width: 45ch;
   }
+  .skills .skill-icons {
+    left: 8rem;
+  }
+  .skills .skill-icons img {
+    width: 8.5rem;
+  }
   .skills .boat {
-    bottom: 4rem;
+    bottom: 3.5rem;
   }
   .projects h3 {
     padding: 3rem 8rem 0rem 8rem;
   }
   .projects .project {
     margin: 5rem 8rem;
+  }
+  .contact h3 {
+    padding: 3rem 8rem 1rem 8rem;
+  }
+  .contact h4 {
+    margin: 3rem 8rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  html {
+    font-size: 100%;
+  }
+  header {
+    padding: 3rem 12rem;
+  }
+  .about {
+    padding: 0 12rem;
+  }
+  .about .about-content .main-blob {
+    top: calc(-10rem - 1px);
+    left: -12rem;
+  }
+  .skills h3 {
+    padding: 5rem 12rem 5rem 12rem;
+    max-width: 50ch;
+  }
+  .skills .skill-icons {
+    left: 12rem;
+  }
+  .projects h3 {
+    padding: 3rem 12rem 0rem 12rem;
+  }
+  .projects .project {
+    margin: 10rem 12rem;
+  }
+  .projects .project:nth-child(even) .project-img {
+    margin-left: 10rem;
+  }
+  .projects .project:nth-child(odd) .project-img {
+    margin-right: 10rem;
+  }
+  .contact h3 {
+    padding: 3rem 12rem 1rem 12rem;
+  }
+  .contact h4 {
+    margin: 5rem 12rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
