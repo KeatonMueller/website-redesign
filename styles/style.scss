@@ -9,6 +9,7 @@ $clr-dark: #000000;
 $margin-sm: 4rem;
 $margin-md: 8rem;
 $margin-lg: 12rem;
+$margin-xl: 10vw;
 
 html {
     font-size: 62.5%;
@@ -61,6 +62,8 @@ p {
 
 // header styles
 header {
+    position: relative;
+    z-index: 1;
     height: 8rem;
     padding: 2rem $margin-sm;
     display: flex;
@@ -177,26 +180,21 @@ header {
         grid-column: 5/6;
     }
 
-    // these svgs can be finicky. make sure they span the width
-    // by making them larger than the viewport
-    .water-1,
-    .water-2 {
+    // this svgs can be finicky. make sure it spans the width
+    // by making it larger than the viewport
+    #water {
         z-index: 1;
         width: calc(100vw + 8px);
         position: absolute;
-        bottom: -1px;
+        bottom: -4px;
         left: -4px;
-    }
-
-    .water-2 {
-        display: none;
     }
 
     .boat {
         z-index: -1;
         width: 30rem;
         position: absolute;
-        bottom: -3rem;
+        bottom: calc(8.1354167vw - 5rem);
         right: 3rem;
     }
 }
@@ -327,11 +325,6 @@ header {
             }
         }
     }
-
-    // reposition boat
-    .skills .boat {
-        bottom: 0rem;
-    }
 }
 
 // change projects to rows and rearrange contact at 700px
@@ -384,8 +377,11 @@ header {
 
         h3 {
             padding: $margin-sm;
-            max-width: 40ch;
             line-height: 8rem;
+            max-width: unset;
+            span {
+                display: block;
+            }
         }
 
         // position skills in a grid
@@ -429,10 +425,6 @@ header {
                 grid-column: 9/10;
             }
         }
-
-        .boat {
-            bottom: 2rem;
-        }
     }
 }
 
@@ -470,7 +462,6 @@ header {
     .skills {
         h3 {
             padding: 5rem $margin-md 5rem $margin-md;
-            max-width: 45ch;
         }
         .skill-icons {
             left: $margin-md;
@@ -478,10 +469,6 @@ header {
 
         .skill-icons img {
             width: 8.5rem;
-        }
-
-        .boat {
-            bottom: 3.5rem;
         }
     }
     .projects {
@@ -524,7 +511,6 @@ header {
     .skills {
         h3 {
             padding: 5rem $margin-lg 5rem $margin-lg;
-            max-width: 50ch;
         }
         .skill-icons {
             left: $margin-lg;
@@ -550,6 +536,60 @@ header {
         }
         h4 {
             margin: 5rem $margin-lg;
+        }
+    }
+}
+
+// resize everything at 2000px
+@media screen and (min-width: 2000px) {
+    html {
+        font-size: 120%;
+    }
+
+    header {
+        padding: 3rem $margin-xl;
+    }
+    .about {
+        padding: 0 $margin-xl;
+
+        .about-content {
+            .main-blob {
+                top: calc(-10rem - 1px);
+                left: -$margin-xl;
+            }
+        }
+    }
+    .skills {
+        h3 {
+            padding: 5rem $margin-xl 5rem $margin-xl;
+        }
+        .skill-icons {
+            left: $margin-xl;
+            img {
+                width: 8vw;
+            }
+        }
+    }
+    .projects {
+        h3 {
+            padding: 3rem $margin-xl 0rem $margin-xl;
+        }
+        .project {
+            margin: 10rem $margin-xl;
+        }
+        .project:nth-child(even) .project-img {
+            margin-left: 10rem;
+        }
+        .project:nth-child(odd) .project-img {
+            margin-right: 10rem;
+        }
+    }
+    .contact {
+        h3 {
+            padding: 3rem $margin-xl 1rem $margin-xl;
+        }
+        h4 {
+            margin: 5rem $margin-xl;
         }
     }
 }

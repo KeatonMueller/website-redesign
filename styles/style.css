@@ -50,6 +50,8 @@ p {
 }
 
 header {
+  position: relative;
+  z-index: 1;
   height: 8rem;
   padding: 2rem 4rem;
   display: -webkit-box;
@@ -207,24 +209,19 @@ header ul svg path {
   grid-column: 5/6;
 }
 
-.skills .water-1,
-.skills .water-2 {
+.skills #water {
   z-index: 1;
   width: calc(100vw + 8px);
   position: absolute;
-  bottom: -1px;
+  bottom: -4px;
   left: -4px;
-}
-
-.skills .water-2 {
-  display: none;
 }
 
 .skills .boat {
   z-index: -1;
   width: 30rem;
   position: absolute;
-  bottom: -3rem;
+  bottom: calc(7.1354167vw - 5rem);
   right: 3rem;
 }
 
@@ -361,9 +358,6 @@ header ul svg path {
     width: 100%;
     max-width: 32rem;
   }
-  .skills .boat {
-    bottom: 0rem;
-  }
 }
 
 @media screen and (min-width: 700px) {
@@ -417,8 +411,11 @@ header ul svg path {
   }
   .skills h3 {
     padding: 4rem;
-    max-width: 40ch;
     line-height: 8rem;
+    max-width: unset;
+  }
+  .skills h3 span {
+    display: block;
   }
   .skills .skill-icons {
     padding: unset;
@@ -483,9 +480,6 @@ header ul svg path {
     -ms-grid-column-span: 1;
     grid-column: 9/10;
   }
-  .skills .boat {
-    bottom: 2rem;
-  }
 }
 
 @media screen and (min-width: 970px) {
@@ -516,16 +510,12 @@ header ul svg path {
   }
   .skills h3 {
     padding: 5rem 8rem 5rem 8rem;
-    max-width: 45ch;
   }
   .skills .skill-icons {
     left: 8rem;
   }
   .skills .skill-icons img {
     width: 8.5rem;
-  }
-  .skills .boat {
-    bottom: 3.5rem;
   }
   .projects h3 {
     padding: 3rem 8rem 0rem 8rem;
@@ -557,7 +547,6 @@ header ul svg path {
   }
   .skills h3 {
     padding: 5rem 12rem 5rem 12rem;
-    max-width: 50ch;
   }
   .skills .skill-icons {
     left: 12rem;
@@ -579,6 +568,49 @@ header ul svg path {
   }
   .contact h4 {
     margin: 5rem 12rem;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  html {
+    font-size: 120%;
+  }
+  header {
+    padding: 3rem 10vw;
+  }
+  .about {
+    padding: 0 10vw;
+  }
+  .about .about-content .main-blob {
+    top: calc(-10rem - 1px);
+    left: -10vw;
+  }
+  .skills h3 {
+    padding: 5rem 10vw 5rem 10vw;
+  }
+  .skills .skill-icons {
+    left: 10vw;
+  }
+  .skills .skill-icons img {
+    width: 8vw;
+  }
+  .projects h3 {
+    padding: 3rem 10vw 0rem 10vw;
+  }
+  .projects .project {
+    margin: 10rem 10vw;
+  }
+  .projects .project:nth-child(even) .project-img {
+    margin-left: 10rem;
+  }
+  .projects .project:nth-child(odd) .project-img {
+    margin-right: 10rem;
+  }
+  .contact h3 {
+    padding: 3rem 10vw 1rem 10vw;
+  }
+  .contact h4 {
+    margin: 5rem 10vw;
   }
 }
 /*# sourceMappingURL=style.css.map */

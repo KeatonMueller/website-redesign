@@ -102,8 +102,8 @@
         <!-- skills section -->
         <section class="skills">
             <h3>
-                During my computer science journey, I've learned many useful
-                skills
+                During my computer science journey,
+                <span>I've learned many useful skills</span>
             </h3>
             <div class="skill-icons">
                 <img
@@ -133,9 +133,90 @@
                 />
             </div>
 
-            <img class="water-1" src="./images/water-1.svg" alt="" />
-            <img class="water-2" src="./images/water-2.svg" alt="" />
-            <img class="boat" src="./images/boat.svg" alt="" />
+            <svg
+                id="water"
+                viewBox="0 0 1920 137"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M1920 136.339H0V74.0866C98.5 92.8692 214.789 106.087 386 106.087C540.526 106.087 741.993 118.565 898.5 84.3042C1076.65 45.3042 1181.79 17.0803 1511.5 2.08664C1786.37 -10.4132 1876.73 35.3036 1920 84.3042V136.339Z"
+                    fill="#009FCB"
+                />
+            </svg>
+
+            <svg
+                class="boat"
+                viewBox="0 0 626 598"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect
+                    width="11.7061"
+                    height="338.706"
+                    transform="matrix(-0.968148 0.25038 0.25038 0.968148 205.059 58.5676)"
+                    fill="#606060"
+                />
+                <path
+                    d="M360.803 542.881C579.355 545.367 605.591 386.836 591.391 307.26L324.651 365.209L57.9116 423.159C67.8119 462.03 142.251 540.394 360.803 542.881Z"
+                    fill="#E6BE5C"
+                />
+                <g filter="url(#filter0_i)">
+                    <path
+                        d="M158.716 364.259C161.074 377.636 97.063 276.634 197.618 129.944C163.775 228.823 239.999 292.555 239.999 292.555C189.994 301.372 155.329 345.055 158.716 364.259Z"
+                        fill="#873699"
+                    />
+                </g>
+                <path
+                    d="M514.613 263.426C490.42 126.169 336.171 81.651 213.673 71.2648C351.008 248.916 241.519 334.766 193.591 348.971C262.425 378.466 516.696 275.244 514.613 263.426Z"
+                    fill="#C845E6"
+                />
+                <defs>
+                    <filter
+                        id="filter0_i"
+                        x="140.791"
+                        y="129.944"
+                        width="99.2081"
+                        height="239.503"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                    >
+                        <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                        />
+                        <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="BackgroundImageFix"
+                            result="shape"
+                        />
+                        <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                        />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feComposite
+                            in2="hardAlpha"
+                            operator="arithmetic"
+                            k2="-1"
+                            k3="1"
+                        />
+                        <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                        />
+                        <feBlend
+                            mode="normal"
+                            in2="shape"
+                            result="effect1_innerShadow"
+                        />
+                    </filter>
+                </defs>
+            </svg>
         </section>
 
         <!-- projects section -->
@@ -269,5 +350,13 @@
                 </li>
             </ul>
         </section>
+
+        <!-- add gsap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+        <!-- add snap svg -->
+        <script src="js/snap/snap.svg-min.js"></script>
+        <!-- add custom js -->
+        <script src="js/main.js"></script>
     </body>
 </html>
