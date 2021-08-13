@@ -28,7 +28,7 @@ nextWaterPath();
 
 // values here represent the Y offset to give the boat,
 // as a percentage of the viewport width
-const BOAT_HEIGHTS = [0, 0.05, 0.045, 0.05];
+const BOAT_HEIGHTS = [0, 0.04, 0.035, 0.04];
 // BOAT_DURS[i] is the time it takes to go *to* BOAT_HEIGHTS[i]
 const BOAT_DURS = [5500, 3500, 1500, 1500];
 // BOAT_EASINGS[i] is the easing used to go *to* BOAT_HEIGHTS[i]
