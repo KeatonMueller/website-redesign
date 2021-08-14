@@ -223,6 +223,8 @@ header ul svg path {
   position: absolute;
   bottom: calc(6.1354167vw - 5rem);
   right: 3rem;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
 }
 
 .projects {
