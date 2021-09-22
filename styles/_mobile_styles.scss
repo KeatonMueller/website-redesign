@@ -1,0 +1,236 @@
+// header styles
+header {
+    position: relative;
+    z-index: 1;
+    height: 8rem;
+    padding: 2rem $margin-sm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+        text-decoration: none;
+        color: $clr-neutral;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+
+        li {
+            display: flex;
+            justify-content: center;
+            margin: 1rem;
+        }
+        // remove right margin from last icon
+        li:last-child {
+            margin-right: 0;
+        }
+
+        svg {
+            width: 2rem;
+            path {
+                fill: $clr-neutral;
+            }
+        }
+    }
+}
+
+// about styles
+.about {
+    padding: 0 $margin-sm;
+    margin-bottom: 8rem;
+
+    // hide headshot unless screen is big enough
+    .headshot {
+        display: none;
+    }
+
+    .about-content {
+        position: relative;
+        // put the main blob in the top left, and send to back
+        .main-blob {
+            z-index: -1;
+            position: absolute;
+            left: -$margin-sm;
+            // send to top of screen (header is 8rem)
+            top: calc(-8rem - 1px);
+
+            width: 105vw;
+            height: calc(100% + 13rem);
+        }
+
+        h1 {
+            color: $clr-neutral;
+            padding-top: 1rem;
+            padding-bottom: 7rem;
+        }
+
+        h3 {
+            color: $clr-neutral;
+            font-size: 3rem;
+            padding-bottom: 5rem;
+            max-width: 25ch;
+        }
+    }
+}
+
+// skills styles
+.skills {
+    height: 70rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+        padding: $margin-sm;
+        max-width: 35ch;
+    }
+
+    // position skills in a grid
+    .skill-icons {
+        padding: 3rem $margin-sm;
+        display: grid;
+        align-self: center;
+        width: 100%;
+        grid-template-columns: 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
+        grid-template-rows: 10rem 10rem 10rem;
+    }
+
+    .skill-typescript {
+        grid-row: 1/2;
+        grid-column: 2/3;
+    }
+    .skill-react {
+        grid-row: 1/2;
+        grid-column: 6/7;
+    }
+    .skill-java {
+        grid-row: 2/3;
+        grid-column: 4/5;
+    }
+    .skill-python {
+        grid-row: 3/4;
+        grid-column: 2/3;
+    }
+    .skill-cpp {
+        grid-row: 3/4;
+        grid-column: 6/7;
+    }
+
+    // this svg can be finicky. make sure it spans the width
+    // by making it larger than the viewport
+    #water {
+        z-index: 1;
+        width: calc(100vw + 8px);
+        position: absolute;
+        bottom: -4px;
+        left: -4px;
+    }
+
+    .boat {
+        z-index: -1;
+        width: 25vw;
+        height: 25vw;
+        position: absolute;
+        bottom: calc(7.1354167vw);
+        bottom: 2vw;
+        right: 0;
+        transform-origin: center;
+        animation: boat-rock 12s linear infinite;
+    }
+}
+// projects styles
+.projects {
+    background: $clr-primary-400;
+    padding-top: 5rem;
+
+    h3 {
+        color: $clr-neutral;
+        padding: 3rem $margin-sm 0rem $margin-sm;
+    }
+
+    .project {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin: 3rem $margin-sm;
+    }
+
+    // final project's margin it changed to padding
+    // so the background color extends
+    .project:last-child {
+        margin-bottom: 0;
+        padding-bottom: 3rem;
+    }
+
+    .project-text-box {
+        position: relative;
+        margin-top: 5rem;
+        padding: 2rem 3rem 4rem 3rem;
+        background: $clr-neutral;
+        border-radius: 2rem;
+    }
+
+    .project-links {
+        position: absolute;
+        bottom: 2rem;
+        right: 3rem;
+
+        display: flex;
+
+        img {
+            width: 2rem;
+            margin-left: 1rem;
+        }
+    }
+
+    .project-img {
+        width: 20rem;
+    }
+}
+
+// contact styles
+.contact {
+    background: $clr-primary-400;
+    padding-bottom: 5rem;
+
+    h3 {
+        color: $clr-neutral;
+        text-align: center;
+        padding: 3rem $margin-sm 1rem $margin-sm;
+    }
+
+    h4 {
+        color: $clr-neutral;
+        text-align: center;
+        margin: 3rem $margin-sm;
+
+        a {
+            font-family: "Sansita", sans-serif;
+            text-decoration: none;
+            color: $clr-primary-900;
+            color: white;
+            display: block;
+        }
+    }
+}
+
+// keyframes for the boat rocking animation
+@keyframes boat-rock {
+    0% {
+        transform: rotate(15deg) translateY(1vw);
+    }
+    30% {
+        transform: rotate(10deg) translateY(6vw);
+    }
+    40% {
+        transform: rotate(7deg) transalteY(6vw);
+    }
+    55% {
+        transform: rotate(-2deg) translateY(5vw);
+    }
+    100% {
+        transform: rotate(15deg) translateY(1vw);
+    }
+}

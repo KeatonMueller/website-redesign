@@ -1,3 +1,11 @@
+/**
+ *
+ * =============================
+ * ==== Snap SVG Animations ====
+ * =============================
+ *
+ */
+
 // total time (in milliseconds) for all animations to do one cycle
 const ANIM_TOTAL_DUR = 12000;
 
@@ -96,6 +104,8 @@ const ANIM_TIMES = {
 
 // variable to keep track of which animation to play
 let animTime = 0;
+// variable to store animIter timeouts
+let animTimeout;
 
 // function cycling through all the animations
 const animIter = () => {
@@ -112,17 +122,69 @@ const animIter = () => {
     if (boat !== null) {
         const { yOffset, rotation, duration, easing } = boat;
         const height = window.innerWidth * yOffset;
-        const transform = `T0,${height}R${rotation}`;
-        boatSvg.animate({ transform: transform }, duration, easing);
+        const transform = `R${rotation}`; // T0,${height}
+        // boatSvg.animate({ transform: transform }, duration, easing);
     }
 
     // update animTime and queue another animIter
     animTime = (animTime + delay) % ANIM_TOTAL_DUR;
-    setTimeout(animIter, delay);
+    animTimeout = setTimeout(animIter, delay);
+};
+
+const icons = [...document.querySelectorAll(".skill-icons img")];
+icons.push(document.querySelector(".boat"));
+
+// function to initiate animation, clearing any running actions
+const waterSvg = document.querySelector("#water path");
+const startAnim = () => {
+    waterPath.stop();
+    waterSvg.setAttribute(
+        "d",
+        "M1920 136.339H0V62C98.5 80.7826 240.789 110 412 110C566.526 110 741.993 118.565 898.5 84.3042C1076.65 45.3042 1181.79 17.0803 1511.5 2.08664C1786.37 -10.4132 1876.73 35.3036 1920 84.3042V136.339Z"
+    );
+
+    clearTimeout(animTimeout);
+    animTime = 0;
+    animIter();
+
+    // console.log(info);
+    icons.forEach((icon) => {
+        icon.style.animation = "none";
+        void icon.offsetWidth; // trigger reflow
+        icon.style.animation = null;
+    });
+    const boat = document.querySelector(".boat");
+    boat.style.animation = "none";
+    void boat.offsetWidth; // trigger reflow
+    void boat.rotation;
+    boat.style.animation = null;
 };
 
 // start up the animations
-animIter();
+startAnim();
+
+/**
+ *
+ * =========================
+ * ==== GSAP Animations ====
+ * =========================
+ *
+ */
+
+// have projects fade in from below when scrolled to
+// const projects = ["cube", "starbattle", "search"];
+// projects.forEach((project) => {
+//     gsap.from(`.project-${project}`, {
+//         scrollTrigger: {
+//             trigger: `.project-${project}`,
+//             start: "center bottom",
+//             toggleActions: "play none none reverse",
+//         },
+//         y: 50,
+//         opacity: 0,
+//         duration: 0.75,
+//     });
+// });
 
 // gsap.from(".about-content", {
 //     opacity: 0,
@@ -141,3 +203,15 @@ animIter();
 //     duration: 0.5,
 //     delay: 0.75,
 // });
+
+window.onresize = () => {
+    const path = document.getElementById("water");
+    const info = {
+        clientWidth: path.clientWidth,
+        clientHeight: path.clientHeight,
+        ratio: path.clientHeight / path.clientWidth,
+        innerWidth: window.innerWidth,
+        calcHeight: 0.071354167 * window.innerWidth,
+    };
+    startAnim();
+};

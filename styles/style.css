@@ -135,7 +135,7 @@ header ul svg path {
 }
 
 .skills {
-  height: 90rem;
+  height: 70rem;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -158,8 +158,8 @@ header ul svg path {
   -ms-grid-row-align: center;
       align-self: center;
   width: 100%;
-  -ms-grid-columns: 10rem 1fr 10rem 1fr 10rem;
-      grid-template-columns: 10rem 1fr 10rem 1fr 10rem;
+  -ms-grid-columns: 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
+      grid-template-columns: 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
   -ms-grid-rows: 10rem 10rem 10rem;
       grid-template-rows: 10rem 10rem 10rem;
 }
@@ -168,45 +168,45 @@ header ul svg path {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
-  -ms-grid-column: 1;
+  -ms-grid-column: 2;
   -ms-grid-column-span: 1;
-  grid-column: 1/2;
+  grid-column: 2/3;
 }
 
 .skills .skill-react {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
-  -ms-grid-column: 5;
+  -ms-grid-column: 6;
   -ms-grid-column-span: 1;
-  grid-column: 5/6;
+  grid-column: 6/7;
 }
 
 .skills .skill-java {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
-  -ms-grid-column: 3;
+  -ms-grid-column: 4;
   -ms-grid-column-span: 1;
-  grid-column: 3/4;
+  grid-column: 4/5;
 }
 
 .skills .skill-python {
   -ms-grid-row: 3;
   -ms-grid-row-span: 1;
   grid-row: 3/4;
-  -ms-grid-column: 1;
+  -ms-grid-column: 2;
   -ms-grid-column-span: 1;
-  grid-column: 1/2;
+  grid-column: 2/3;
 }
 
 .skills .skill-cpp {
   -ms-grid-row: 3;
   -ms-grid-row-span: 1;
   grid-row: 3/4;
-  -ms-grid-column: 5;
+  -ms-grid-column: 6;
   -ms-grid-column-span: 1;
-  grid-column: 5/6;
+  grid-column: 6/7;
 }
 
 .skills #water {
@@ -219,12 +219,16 @@ header ul svg path {
 
 .skills .boat {
   z-index: -1;
-  width: 30rem;
+  width: 25vw;
+  height: 25vw;
   position: absolute;
-  bottom: calc(6.1354167vw - 5rem);
-  right: 3rem;
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
+  bottom: calc(7.1354167vw);
+  bottom: 2vw;
+  right: 0;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: boat-rock 12s linear infinite;
+          animation: boat-rock 12s linear infinite;
 }
 
 .projects {
@@ -307,6 +311,55 @@ header ul svg path {
   display: block;
 }
 
+@-webkit-keyframes boat-rock {
+  0% {
+    -webkit-transform: rotate(15deg) translateY(1vw);
+            transform: rotate(15deg) translateY(1vw);
+  }
+  30% {
+    -webkit-transform: rotate(10deg) translateY(6vw);
+            transform: rotate(10deg) translateY(6vw);
+  }
+  40% {
+    -webkit-transform: rotate(7deg) transalteY(6vw);
+            transform: rotate(7deg) transalteY(6vw);
+  }
+  55% {
+    -webkit-transform: rotate(-2deg) translateY(5vw);
+            transform: rotate(-2deg) translateY(5vw);
+  }
+  100% {
+    -webkit-transform: rotate(15deg) translateY(1vw);
+            transform: rotate(15deg) translateY(1vw);
+  }
+}
+
+@keyframes boat-rock {
+  0% {
+    -webkit-transform: rotate(15deg) translateY(1vw);
+            transform: rotate(15deg) translateY(1vw);
+  }
+  30% {
+    -webkit-transform: rotate(10deg) translateY(6vw);
+            transform: rotate(10deg) translateY(6vw);
+  }
+  40% {
+    -webkit-transform: rotate(7deg) transalteY(6vw);
+            transform: rotate(7deg) transalteY(6vw);
+  }
+  55% {
+    -webkit-transform: rotate(-2deg) translateY(5vw);
+            transform: rotate(-2deg) translateY(5vw);
+  }
+  100% {
+    -webkit-transform: rotate(15deg) translateY(1vw);
+            transform: rotate(15deg) translateY(1vw);
+  }
+}
+
+/**
+ * Styles for screen sizes between 650px and 1000px
+ */
 @media screen and (min-width: 650px) {
   header ul svg path {
     fill: #000000;
@@ -423,15 +476,16 @@ header ul svg path {
     padding: unset;
     position: absolute;
     left: 4rem;
-    bottom: 13rem;
-    width: calc(100vw - 37rem);
+    bottom: 7vw;
+    width: 70vw;
+    height: 9vw;
     -ms-grid-columns: 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
         grid-template-columns: 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
     -ms-grid-rows: 10rem;
         grid-template-rows: 10rem;
   }
   .skills .skill-icons img {
-    width: 10rem;
+    width: 8vw;
     margin: 0 1rem 0 1rem;
   }
   .skills .skill-icons .skill-typescript {
@@ -441,8 +495,8 @@ header ul svg path {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
-    -webkit-transform: translateY(2rem);
-            transform: translateY(2rem);
+    -webkit-animation: bob-typescript 12s linear infinite;
+            animation: bob-typescript 12s linear infinite;
   }
   .skills .skill-icons .skill-react {
     -ms-grid-row: 1;
@@ -451,8 +505,8 @@ header ul svg path {
     -ms-grid-column: 3;
     -ms-grid-column-span: 1;
     grid-column: 3/4;
-    -webkit-transform: translateY(4rem);
-            transform: translateY(4rem);
+    -webkit-animation: bob-react 12s linear infinite;
+            animation: bob-react 12s linear infinite;
   }
   .skills .skill-icons .skill-java {
     -ms-grid-row: 1;
@@ -461,8 +515,8 @@ header ul svg path {
     -ms-grid-column: 5;
     -ms-grid-column-span: 1;
     grid-column: 5/6;
-    -webkit-transform: translateY(6rem);
-            transform: translateY(6rem);
+    -webkit-animation: bob-java 12s linear infinite;
+            animation: bob-java 12s linear infinite;
   }
   .skills .skill-icons .skill-python {
     -ms-grid-row: 1;
@@ -471,8 +525,8 @@ header ul svg path {
     -ms-grid-column: 7;
     -ms-grid-column-span: 1;
     grid-column: 7/8;
-    -webkit-transform: translateY(3rem);
-            transform: translateY(3rem);
+    -webkit-animation: bob-python 12s linear infinite;
+            animation: bob-python 12s linear infinite;
   }
   .skills .skill-icons .skill-cpp {
     -ms-grid-row: 1;
@@ -481,12 +535,212 @@ header ul svg path {
     -ms-grid-column: 9;
     -ms-grid-column-span: 1;
     grid-column: 9/10;
+    -webkit-animation: bob-cpp 12s linear infinite;
+            animation: bob-cpp 12s linear infinite;
   }
 }
 
 @media screen and (min-width: 970px) {
   .about .about-content h3 {
     max-width: unset;
+  }
+}
+
+@-webkit-keyframes bob-typescript {
+  0% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  20% {
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
+  }
+  55% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  100% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+}
+
+@keyframes bob-typescript {
+  0% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  20% {
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
+  }
+  55% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  100% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+}
+
+@-webkit-keyframes bob-react {
+  0% {
+    -webkit-transform: translateY(6vw);
+            transform: translateY(6vw);
+  }
+  10% {
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
+  }
+  50% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  100% {
+    -webkit-transform: translateY(6vw);
+            transform: translateY(6vw);
+  }
+}
+
+@keyframes bob-react {
+  0% {
+    -webkit-transform: translateY(6vw);
+            transform: translateY(6vw);
+  }
+  10% {
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
+  }
+  50% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  100% {
+    -webkit-transform: translateY(6vw);
+            transform: translateY(6vw);
+  }
+}
+
+@-webkit-keyframes bob-java {
+  0% {
+    -webkit-transform: translateY(3vw);
+            transform: translateY(3vw);
+  }
+  30% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  50% {
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
+  }
+  70% {
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
+  }
+  100% {
+    -webkit-transform: translateY(3vw);
+            transform: translateY(3vw);
+  }
+}
+
+@keyframes bob-java {
+  0% {
+    -webkit-transform: translateY(3vw);
+            transform: translateY(3vw);
+  }
+  30% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  50% {
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
+  }
+  70% {
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
+  }
+  100% {
+    -webkit-transform: translateY(3vw);
+            transform: translateY(3vw);
+  }
+}
+
+@-webkit-keyframes bob-python {
+  0% {
+    -webkit-transform: translateY(2vw);
+            transform: translateY(2vw);
+  }
+  25% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  60% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  100% {
+    -webkit-transform: translateY(2vw);
+            transform: translateY(2vw);
+  }
+}
+
+@keyframes bob-python {
+  0% {
+    -webkit-transform: translateY(2vw);
+            transform: translateY(2vw);
+  }
+  25% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  60% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  100% {
+    -webkit-transform: translateY(2vw);
+            transform: translateY(2vw);
+  }
+}
+
+@-webkit-keyframes bob-cpp {
+  0% {
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
+  }
+  15% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  50% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  100% {
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
+  }
+}
+
+@keyframes bob-cpp {
+  0% {
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
+  }
+  15% {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  50% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  100% {
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
   }
 }
 
@@ -515,9 +769,7 @@ header ul svg path {
   }
   .skills .skill-icons {
     left: 8rem;
-  }
-  .skills .skill-icons img {
-    width: 8.5rem;
+    width: calc(70vw - 8rem);
   }
   .projects h3 {
     padding: 3rem 8rem 0rem 8rem;
@@ -592,9 +844,7 @@ header ul svg path {
   }
   .skills .skill-icons {
     left: 10vw;
-  }
-  .skills .skill-icons img {
-    width: 8vw;
+    height: 9vw;
   }
   .projects h3 {
     padding: 3rem 10vw 0rem 10vw;

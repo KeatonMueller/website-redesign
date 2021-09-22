@@ -1,0 +1,153 @@
+// resize everything at 1100px
+@media screen and (min-width: 1100px) {
+    html {
+        font-size: 80%;
+    }
+
+    header {
+        height: 10rem;
+        padding: 3rem $margin-md;
+    }
+    .about {
+        padding: 0 $margin-md;
+        grid-template-columns: calc(min(70%, 100rem)) 1fr;
+
+        .about-content {
+            .main-blob {
+                top: calc(-10rem - 1px);
+                left: -$margin-md;
+            }
+            h3 {
+                max-width: 25ch;
+            }
+        }
+    }
+    .skills {
+        h3 {
+            padding: 5rem $margin-md 5rem $margin-md;
+        }
+        .skill-icons {
+            left: $margin-md;
+            width: calc(70vw - 8rem);
+        }
+    }
+    .projects {
+        h3 {
+            padding: 3rem $margin-md 0rem $margin-md;
+        }
+        .project {
+            margin: 5rem $margin-md;
+        }
+    }
+    .contact {
+        h3 {
+            padding: 3rem $margin-md 1rem $margin-md;
+        }
+        h4 {
+            margin: 3rem $margin-md;
+        }
+    }
+}
+
+// resize everything at 1600px
+@media screen and (min-width: 1600px) {
+    html {
+        font-size: 100%;
+    }
+
+    header {
+        padding: 3rem $margin-lg;
+    }
+    .about {
+        padding: 0 $margin-lg;
+
+        .about-content {
+            .main-blob {
+                top: calc(-10rem - 1px);
+                left: -$margin-lg;
+            }
+        }
+    }
+    .skills {
+        h3 {
+            padding: 5rem $margin-lg 5rem $margin-lg;
+        }
+        .skill-icons {
+            left: $margin-lg;
+        }
+    }
+    .projects {
+        h3 {
+            padding: 3rem $margin-lg 0rem $margin-lg;
+        }
+        .project {
+            margin: 10rem $margin-lg;
+        }
+        .project:nth-child(even) .project-img {
+            margin-left: 10rem;
+        }
+        .project:nth-child(odd) .project-img {
+            margin-right: 10rem;
+        }
+    }
+    .contact {
+        h3 {
+            padding: 3rem $margin-lg 1rem $margin-lg;
+        }
+        h4 {
+            margin: 5rem $margin-lg;
+        }
+    }
+}
+
+// resize everything at 2000px
+@media screen and (min-width: 2000px) {
+    html {
+        font-size: 120%;
+    }
+
+    header {
+        padding: 3rem $margin-xl;
+    }
+    .about {
+        padding: 0 $margin-xl;
+
+        .about-content {
+            .main-blob {
+                top: calc(-10rem - 1px);
+                left: -$margin-xl;
+            }
+        }
+    }
+    .skills {
+        h3 {
+            padding: 5rem $margin-xl 5rem $margin-xl;
+        }
+        .skill-icons {
+            left: $margin-xl;
+            height: 9vw;
+        }
+    }
+    .projects {
+        h3 {
+            padding: 3rem $margin-xl 0rem $margin-xl;
+        }
+        .project {
+            margin: 10rem $margin-xl;
+        }
+        .project:nth-child(even) .project-img {
+            margin-left: 10rem;
+        }
+        .project:nth-child(odd) .project-img {
+            margin-right: 10rem;
+        }
+    }
+    .contact {
+        h3 {
+            padding: 3rem $margin-xl 1rem $margin-xl;
+        }
+        h4 {
+            margin: 5rem $margin-xl;
+        }
+    }
+}

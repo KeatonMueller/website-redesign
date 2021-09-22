@@ -1,0 +1,248 @@
+/**
+ * Styles for screen sizes between 650px and 1000px
+ */
+
+// introduce headshot for medium sized screens and up
+@media screen and (min-width: 650px) {
+    // change header icons to black
+    header ul svg path {
+        fill: $clr-dark;
+    }
+
+    .about {
+        display: grid;
+        grid-template-columns: calc(min(70vw, 80rem)) 1fr;
+        grid-template-rows: 1fr;
+
+        .about-content {
+            grid-row: 1/2;
+            grid-column: 1/2;
+            .main-blob {
+                width: 100%;
+            }
+        }
+
+        // add headshot
+        .headshot {
+            display: unset;
+            position: relative;
+            grid-row: 1/2;
+            grid-column: 2/3;
+
+            // padding-top: 5rem;
+            padding-top: calc(7rem - 5vw);
+            .headshot-blob {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, calc(-50% + 5rem));
+                // transform: translate(-3vw, 7vw);
+                width: 120%;
+                max-width: 38.4rem;
+            }
+            .headshot-img {
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                // transform: translateX(-3vw);
+                width: 100%;
+                max-width: 32rem;
+            }
+        }
+    }
+}
+
+// change projects to rows and rearrange contact at 700px
+@media screen and (min-width: 700px) {
+    .projects {
+        h3 {
+            text-align: center;
+        }
+
+        .project-text-box {
+            margin-top: 0;
+        }
+        // projects are children 2, 3, 4 because the <h3> is child 1
+        .project:nth-child(even) {
+            flex-direction: row;
+            .project-img {
+                margin-left: 3rem;
+            }
+        }
+        .project:nth-child(odd) {
+            flex-direction: row-reverse;
+            .project-img {
+                margin-right: 3rem;
+            }
+        }
+
+        // adjust cube project img since it's slightly off center
+        .project:nth-child(2) .project-img {
+            transform: translateY(-2rem);
+        }
+    }
+
+    .contact {
+        h4 {
+            text-align: left;
+            a {
+                display: unset;
+            }
+        }
+    }
+}
+
+// rearrange skills at 930px
+@media screen and (min-width: 930px) {
+    .skills {
+        height: 50rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            padding: $margin-sm;
+            line-height: 8rem;
+            max-width: unset;
+            span {
+                display: block;
+            }
+        }
+
+        // position skills in a grid
+        .skill-icons {
+            padding: unset;
+            position: absolute;
+            left: $margin-sm;
+            bottom: 7vw;
+            width: 70vw;
+            height: 9vw;
+
+            grid-template-columns: 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr 10rem 1fr;
+            grid-template-rows: 10rem;
+
+            img {
+                width: 8vw;
+                margin: 0 1rem 0 1rem;
+            }
+
+            .skill-typescript {
+                grid-row: 1/2;
+                grid-column: 1/2;
+                // transform: translateY(-4rem);
+                animation: bob-typescript 12s linear infinite;
+            }
+            .skill-react {
+                grid-row: 1/2;
+                grid-column: 3/4;
+                // transform: translateY(-2rem);
+                animation: bob-react 12s linear infinite;
+            }
+            .skill-java {
+                grid-row: 1/2;
+                grid-column: 5/6;
+                // transform: translateY(0rem);
+                animation: bob-java 12s linear infinite;
+            }
+            .skill-python {
+                grid-row: 1/2;
+                grid-column: 7/8;
+                // transform: translateY(-3rem);
+                animation: bob-python 12s linear infinite;
+            }
+            .skill-cpp {
+                grid-row: 1/2;
+                grid-column: 9/10;
+                // transform: translateY(-6rem);
+                animation: bob-cpp 12s linear infinite;
+            }
+        }
+    }
+}
+
+// allow about paragraph to grow at 970px
+@media screen and (min-width: 970px) {
+    .about .about-content h3 {
+        max-width: unset;
+    }
+}
+
+@keyframes bob-typescript {
+    0% {
+        transform: translateY(5vw);
+    }
+    20% {
+        transform: translateY(4vw);
+    }
+    55% {
+        transform: translateY(0vw);
+    }
+    100% {
+        transform: translateY(5vw);
+    }
+}
+
+@keyframes bob-react {
+    0% {
+        transform: translateY(6vw);
+    }
+    10% {
+        transform: translateY(4vw);
+    }
+    50% {
+        transform: translateY(0vw);
+    }
+    100% {
+        transform: translateY(6vw);
+    }
+}
+
+@keyframes bob-java {
+    0% {
+        transform: translateY(3vw);
+    }
+    30% {
+        transform: translateY(0vw);
+    }
+    50% {
+        transform: translateY(1vw);
+    }
+    70% {
+        transform: translateY(4vw);
+    }
+    100% {
+        transform: translateY(3vw);
+    }
+}
+
+@keyframes bob-python {
+    0% {
+        transform: translateY(2vw);
+    }
+    25% {
+        transform: translateY(0vw);
+    }
+    60% {
+        transform: translateY(5vw);
+    }
+    100% {
+        transform: translateY(2vw);
+    }
+}
+
+@keyframes bob-cpp {
+    0% {
+        transform: translateY(1vw);
+    }
+    15% {
+        transform: translateY(0vw);
+    }
+    50% {
+        transform: translateY(5vw);
+    }
+    100% {
+        transform: translateY(1vw);
+    }
+}
