@@ -218,7 +218,7 @@ header ul svg path {
 }
 
 .skills .boat {
-  z-index: -1;
+  z-index: -3;
   width: 25vw;
   height: 25vw;
   position: absolute;
@@ -227,13 +227,37 @@ header ul svg path {
   right: 0;
   -webkit-transform-origin: center;
           transform-origin: center;
-  -webkit-animation: boat-rock 12s linear infinite;
-          animation: boat-rock 12s linear infinite;
+  -webkit-transition: -webkit-transform 3s linear;
+  transition: -webkit-transform 3s linear;
+  transition: transform 3s linear;
+  transition: transform 3s linear, -webkit-transform 3s linear;
+}
+
+.skills .boat.pos-0 {
+  -webkit-transform: rotate(15deg) translateY(1vw);
+          transform: rotate(15deg) translateY(1vw);
+}
+
+.skills .boat.pos-1 {
+  -webkit-transform: rotate(10deg) translateY(6vw);
+          transform: rotate(10deg) translateY(6vw);
+}
+
+.skills .boat.pos-2 {
+  -webkit-transform: rotate(5deg) translateY(5vw);
+          transform: rotate(5deg) translateY(5vw);
+}
+
+.skills .boat.pos-3 {
+  -webkit-transform: rotate(-2deg) translateY(3vw);
+          transform: rotate(-2deg) translateY(3vw);
 }
 
 .projects {
   background: #009fcb;
   padding-top: 5rem;
+  position: relative;
+  z-index: -2;
 }
 
 .projects h3 {
@@ -258,6 +282,7 @@ header ul svg path {
 .projects .project:last-child {
   margin-bottom: 0;
   padding-bottom: 3rem;
+  margin-top: 5rem;
 }
 
 .projects .project-text-box {
@@ -266,6 +291,31 @@ header ul svg path {
   padding: 2rem 3rem 4rem 3rem;
   background: #ffffff;
   border-radius: 2rem;
+}
+
+.projects .project-text-box::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 1rem;
+  z-index: -1;
+  border-radius: 2rem;
+}
+
+.projects .project:nth-child(2) .project-text-box::after {
+  left: 1rem;
+  background-color: #ff0000;
+}
+
+.projects .project:nth-child(3) .project-text-box::after {
+  right: 1rem;
+  background-color: #ffe100;
+}
+
+.projects .project:nth-child(4) .project-text-box::after {
+  left: 1rem;
+  background-color: #0fff27;
 }
 
 .projects .project-links {
@@ -309,52 +359,6 @@ header ul svg path {
   color: #002833;
   color: white;
   display: block;
-}
-
-@-webkit-keyframes boat-rock {
-  0% {
-    -webkit-transform: rotate(15deg) translateY(1vw);
-            transform: rotate(15deg) translateY(1vw);
-  }
-  30% {
-    -webkit-transform: rotate(10deg) translateY(6vw);
-            transform: rotate(10deg) translateY(6vw);
-  }
-  40% {
-    -webkit-transform: rotate(7deg) transalteY(6vw);
-            transform: rotate(7deg) transalteY(6vw);
-  }
-  55% {
-    -webkit-transform: rotate(-2deg) translateY(5vw);
-            transform: rotate(-2deg) translateY(5vw);
-  }
-  100% {
-    -webkit-transform: rotate(15deg) translateY(1vw);
-            transform: rotate(15deg) translateY(1vw);
-  }
-}
-
-@keyframes boat-rock {
-  0% {
-    -webkit-transform: rotate(15deg) translateY(1vw);
-            transform: rotate(15deg) translateY(1vw);
-  }
-  30% {
-    -webkit-transform: rotate(10deg) translateY(6vw);
-            transform: rotate(10deg) translateY(6vw);
-  }
-  40% {
-    -webkit-transform: rotate(7deg) transalteY(6vw);
-            transform: rotate(7deg) transalteY(6vw);
-  }
-  55% {
-    -webkit-transform: rotate(-2deg) translateY(5vw);
-            transform: rotate(-2deg) translateY(5vw);
-  }
-  100% {
-    -webkit-transform: rotate(15deg) translateY(1vw);
-            transform: rotate(15deg) translateY(1vw);
-  }
 }
 
 /**
@@ -429,7 +433,7 @@ header ul svg path {
             flex-direction: row;
   }
   .projects .project:nth-child(even) .project-img {
-    margin-left: 3rem;
+    margin-left: 5rem;
   }
   .projects .project:nth-child(odd) {
     -webkit-box-orient: horizontal;
@@ -495,8 +499,28 @@ header ul svg path {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
-    -webkit-animation: bob-typescript 12s linear infinite;
-            animation: bob-typescript 12s linear infinite;
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+    -webkit-transition: -webkit-transform 3s linear;
+    transition: -webkit-transform 3s linear;
+    transition: transform 3s linear;
+    transition: transform 3s linear, -webkit-transform 3s linear;
+  }
+  .skills .skill-icons .skill-typescript.pos-0 {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  .skills .skill-icons .skill-typescript.pos-1 {
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
+  }
+  .skills .skill-icons .skill-typescript.pos-2 {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  .skills .skill-icons .skill-typescript.pos-3 {
+    -webkit-transform: translateY(3vw);
+            transform: translateY(3vw);
   }
   .skills .skill-icons .skill-react {
     -ms-grid-row: 1;
@@ -505,8 +529,28 @@ header ul svg path {
     -ms-grid-column: 3;
     -ms-grid-column-span: 1;
     grid-column: 3/4;
-    -webkit-animation: bob-react 12s linear infinite;
-            animation: bob-react 12s linear infinite;
+    -webkit-transform: translateY(6vw);
+            transform: translateY(6vw);
+    -webkit-transition: -webkit-transform 3s linear;
+    transition: -webkit-transform 3s linear;
+    transition: transform 3s linear;
+    transition: transform 3s linear, -webkit-transform 3s linear;
+  }
+  .skills .skill-icons .skill-react.pos-0 {
+    -webkit-transform: translateY(6vw);
+            transform: translateY(6vw);
+  }
+  .skills .skill-icons .skill-react.pos-1 {
+    -webkit-transform: translateY(3.5vw);
+            transform: translateY(3.5vw);
+  }
+  .skills .skill-icons .skill-react.pos-2 {
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
+  }
+  .skills .skill-icons .skill-react.pos-3 {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
   }
   .skills .skill-icons .skill-java {
     -ms-grid-row: 1;
@@ -515,8 +559,28 @@ header ul svg path {
     -ms-grid-column: 5;
     -ms-grid-column-span: 1;
     grid-column: 5/6;
-    -webkit-animation: bob-java 12s linear infinite;
-            animation: bob-java 12s linear infinite;
+    -webkit-transform: translateY(3.5vw);
+            transform: translateY(3.5vw);
+    -webkit-transition: -webkit-transform 3s linear;
+    transition: -webkit-transform 3s linear;
+    transition: transform 3s linear;
+    transition: transform 3s linear, -webkit-transform 3s linear;
+  }
+  .skills .skill-icons .skill-java.pos-0 {
+    -webkit-transform: translateY(3.5vw);
+            transform: translateY(3.5vw);
+  }
+  .skills .skill-icons .skill-java.pos-1 {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  .skills .skill-icons .skill-java.pos-2 {
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
+  }
+  .skills .skill-icons .skill-java.pos-3 {
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
   }
   .skills .skill-icons .skill-python {
     -ms-grid-row: 1;
@@ -525,8 +589,28 @@ header ul svg path {
     -ms-grid-column: 7;
     -ms-grid-column-span: 1;
     grid-column: 7/8;
-    -webkit-animation: bob-python 12s linear infinite;
-            animation: bob-python 12s linear infinite;
+    -webkit-transform: translateY(2vw);
+            transform: translateY(2vw);
+    -webkit-transition: -webkit-transform 3s linear;
+    transition: -webkit-transform 3s linear;
+    transition: transform 3s linear;
+    transition: transform 3s linear, -webkit-transform 3s linear;
+  }
+  .skills .skill-icons .skill-python.pos-0 {
+    -webkit-transform: translateY(2vw);
+            transform: translateY(2vw);
+  }
+  .skills .skill-icons .skill-python.pos-1 {
+    -webkit-transform: translateY(0vw);
+            transform: translateY(0vw);
+  }
+  .skills .skill-icons .skill-python.pos-2 {
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
+  }
+  .skills .skill-icons .skill-python.pos-3 {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
   }
   .skills .skill-icons .skill-cpp {
     -ms-grid-row: 1;
@@ -535,212 +619,34 @@ header ul svg path {
     -ms-grid-column: 9;
     -ms-grid-column-span: 1;
     grid-column: 9/10;
-    -webkit-animation: bob-cpp 12s linear infinite;
-            animation: bob-cpp 12s linear infinite;
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
+    -webkit-transition: -webkit-transform 3s linear;
+    transition: -webkit-transform 3s linear;
+    transition: transform 3s linear;
+    transition: transform 3s linear, -webkit-transform 3s linear;
+  }
+  .skills .skill-icons .skill-cpp.pos-0 {
+    -webkit-transform: translateY(1vw);
+            transform: translateY(1vw);
+  }
+  .skills .skill-icons .skill-cpp.pos-1 {
+    -webkit-transform: translateY(2vw);
+            transform: translateY(2vw);
+  }
+  .skills .skill-icons .skill-cpp.pos-2 {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  .skills .skill-icons .skill-cpp.pos-3 {
+    -webkit-transform: translateY(4.5vw);
+            transform: translateY(4.5vw);
   }
 }
 
 @media screen and (min-width: 970px) {
   .about .about-content h3 {
     max-width: unset;
-  }
-}
-
-@-webkit-keyframes bob-typescript {
-  0% {
-    -webkit-transform: translateY(5vw);
-            transform: translateY(5vw);
-  }
-  20% {
-    -webkit-transform: translateY(4vw);
-            transform: translateY(4vw);
-  }
-  55% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  100% {
-    -webkit-transform: translateY(5vw);
-            transform: translateY(5vw);
-  }
-}
-
-@keyframes bob-typescript {
-  0% {
-    -webkit-transform: translateY(5vw);
-            transform: translateY(5vw);
-  }
-  20% {
-    -webkit-transform: translateY(4vw);
-            transform: translateY(4vw);
-  }
-  55% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  100% {
-    -webkit-transform: translateY(5vw);
-            transform: translateY(5vw);
-  }
-}
-
-@-webkit-keyframes bob-react {
-  0% {
-    -webkit-transform: translateY(6vw);
-            transform: translateY(6vw);
-  }
-  10% {
-    -webkit-transform: translateY(4vw);
-            transform: translateY(4vw);
-  }
-  50% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  100% {
-    -webkit-transform: translateY(6vw);
-            transform: translateY(6vw);
-  }
-}
-
-@keyframes bob-react {
-  0% {
-    -webkit-transform: translateY(6vw);
-            transform: translateY(6vw);
-  }
-  10% {
-    -webkit-transform: translateY(4vw);
-            transform: translateY(4vw);
-  }
-  50% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  100% {
-    -webkit-transform: translateY(6vw);
-            transform: translateY(6vw);
-  }
-}
-
-@-webkit-keyframes bob-java {
-  0% {
-    -webkit-transform: translateY(3vw);
-            transform: translateY(3vw);
-  }
-  30% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  50% {
-    -webkit-transform: translateY(1vw);
-            transform: translateY(1vw);
-  }
-  70% {
-    -webkit-transform: translateY(4vw);
-            transform: translateY(4vw);
-  }
-  100% {
-    -webkit-transform: translateY(3vw);
-            transform: translateY(3vw);
-  }
-}
-
-@keyframes bob-java {
-  0% {
-    -webkit-transform: translateY(3vw);
-            transform: translateY(3vw);
-  }
-  30% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  50% {
-    -webkit-transform: translateY(1vw);
-            transform: translateY(1vw);
-  }
-  70% {
-    -webkit-transform: translateY(4vw);
-            transform: translateY(4vw);
-  }
-  100% {
-    -webkit-transform: translateY(3vw);
-            transform: translateY(3vw);
-  }
-}
-
-@-webkit-keyframes bob-python {
-  0% {
-    -webkit-transform: translateY(2vw);
-            transform: translateY(2vw);
-  }
-  25% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  60% {
-    -webkit-transform: translateY(5vw);
-            transform: translateY(5vw);
-  }
-  100% {
-    -webkit-transform: translateY(2vw);
-            transform: translateY(2vw);
-  }
-}
-
-@keyframes bob-python {
-  0% {
-    -webkit-transform: translateY(2vw);
-            transform: translateY(2vw);
-  }
-  25% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  60% {
-    -webkit-transform: translateY(5vw);
-            transform: translateY(5vw);
-  }
-  100% {
-    -webkit-transform: translateY(2vw);
-            transform: translateY(2vw);
-  }
-}
-
-@-webkit-keyframes bob-cpp {
-  0% {
-    -webkit-transform: translateY(1vw);
-            transform: translateY(1vw);
-  }
-  15% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  50% {
-    -webkit-transform: translateY(5vw);
-            transform: translateY(5vw);
-  }
-  100% {
-    -webkit-transform: translateY(1vw);
-            transform: translateY(1vw);
-  }
-}
-
-@keyframes bob-cpp {
-  0% {
-    -webkit-transform: translateY(1vw);
-            transform: translateY(1vw);
-  }
-  15% {
-    -webkit-transform: translateY(0vw);
-            transform: translateY(0vw);
-  }
-  50% {
-    -webkit-transform: translateY(5vw);
-            transform: translateY(5vw);
-  }
-  100% {
-    -webkit-transform: translateY(1vw);
-            transform: translateY(1vw);
   }
 }
 

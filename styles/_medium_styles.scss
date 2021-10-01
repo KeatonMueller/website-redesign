@@ -68,7 +68,8 @@
         .project:nth-child(even) {
             flex-direction: row;
             .project-img {
-                margin-left: 3rem;
+                // cube and search need a bit more room than starbattle does
+                margin-left: 5rem;
             }
         }
         .project:nth-child(odd) {
@@ -128,35 +129,104 @@
                 margin: 0 1rem 0 1rem;
             }
 
+            // typescript position and animations
             .skill-typescript {
                 grid-row: 1/2;
                 grid-column: 1/2;
-                // transform: translateY(-4rem);
-                animation: bob-typescript 12s linear infinite;
+                transform: translateY(5vw);
+                transition: transform 3s linear;
             }
+            .skill-typescript.pos-0 {
+                transform: translateY(5vw);
+            }
+            .skill-typescript.pos-1 {
+                transform: translateY(4vw);
+            }
+            .skill-typescript.pos-2 {
+                transform: translateY(0vw);
+            }
+            .skill-typescript.pos-3 {
+                transform: translateY(3vw);
+            }
+
+            // react position and animations
             .skill-react {
                 grid-row: 1/2;
                 grid-column: 3/4;
-                // transform: translateY(-2rem);
-                animation: bob-react 12s linear infinite;
+                transform: translateY(6vw);
+                transition: transform 3s linear;
             }
+            .skill-react.pos-0 {
+                transform: translateY(6vw);
+            }
+            .skill-react.pos-1 {
+                transform: translateY(3.5vw);
+            }
+            .skill-react.pos-2 {
+                transform: translateY(1vw);
+            }
+            .skill-react.pos-3 {
+                transform: translateY(5vw);
+            }
+
+            // java position and animations
             .skill-java {
                 grid-row: 1/2;
                 grid-column: 5/6;
-                // transform: translateY(0rem);
-                animation: bob-java 12s linear infinite;
+                transform: translateY(3.5vw);
+                transition: transform 3s linear;
             }
+            .skill-java.pos-0 {
+                transform: translateY(3.5vw);
+            }
+            .skill-java.pos-1 {
+                transform: translateY(0vw);
+            }
+            .skill-java.pos-2 {
+                transform: translateY(1vw);
+            }
+            .skill-java.pos-3 {
+                transform: translateY(4vw);
+            }
+
+            // python position and animations
             .skill-python {
                 grid-row: 1/2;
                 grid-column: 7/8;
-                // transform: translateY(-3rem);
-                animation: bob-python 12s linear infinite;
+                transform: translateY(2vw);
+                transition: transform 3s linear;
             }
+            .skill-python.pos-0 {
+                transform: translateY(2vw);
+            }
+            .skill-python.pos-1 {
+                transform: translateY(0vw);
+            }
+            .skill-python.pos-2 {
+                transform: translateY(4vw);
+            }
+            .skill-python.pos-3 {
+                transform: translateY(5vw);
+            }
+
+            // cpp position and animations
             .skill-cpp {
                 grid-row: 1/2;
                 grid-column: 9/10;
-                // transform: translateY(-6rem);
-                animation: bob-cpp 12s linear infinite;
+                transform: translateY(1vw);
+                transition: transform 3s linear;
+            }
+            .skill-cpp.pos-0 {
+                transform: translateY(1vw);
+            }
+            .skill-cpp.pos-1 {
+                transform: translateY(2vw);
+            }
+            .skill-cpp.pos-2 {
+                transform: translateY(5vw);
+            }
+            .skill-cpp.pos-3 {
+                transform: translateY(4.5vw);
             }
         }
     }
@@ -166,83 +236,5 @@
 @media screen and (min-width: 970px) {
     .about .about-content h3 {
         max-width: unset;
-    }
-}
-
-@keyframes bob-typescript {
-    0% {
-        transform: translateY(5vw);
-    }
-    20% {
-        transform: translateY(4vw);
-    }
-    55% {
-        transform: translateY(0vw);
-    }
-    100% {
-        transform: translateY(5vw);
-    }
-}
-
-@keyframes bob-react {
-    0% {
-        transform: translateY(6vw);
-    }
-    10% {
-        transform: translateY(4vw);
-    }
-    50% {
-        transform: translateY(0vw);
-    }
-    100% {
-        transform: translateY(6vw);
-    }
-}
-
-@keyframes bob-java {
-    0% {
-        transform: translateY(3vw);
-    }
-    30% {
-        transform: translateY(0vw);
-    }
-    50% {
-        transform: translateY(1vw);
-    }
-    70% {
-        transform: translateY(4vw);
-    }
-    100% {
-        transform: translateY(3vw);
-    }
-}
-
-@keyframes bob-python {
-    0% {
-        transform: translateY(2vw);
-    }
-    25% {
-        transform: translateY(0vw);
-    }
-    60% {
-        transform: translateY(5vw);
-    }
-    100% {
-        transform: translateY(2vw);
-    }
-}
-
-@keyframes bob-cpp {
-    0% {
-        transform: translateY(1vw);
-    }
-    15% {
-        transform: translateY(0vw);
-    }
-    50% {
-        transform: translateY(5vw);
-    }
-    100% {
-        transform: translateY(1vw);
     }
 }

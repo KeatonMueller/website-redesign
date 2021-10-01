@@ -12,28 +12,29 @@ const waterPath = document.querySelector("#water path");
 const icons = [...document.querySelectorAll(".skill-icons img")];
 icons.push(document.querySelector(".boat"));
 
-// variable to keep track of water's animation state
-let waterIdx = 0;
+// variable to keep track of animation state
+let animIdx = 0;
 // variable to store all queued timeouts
 const timeouts = [];
 
 // cycle through the water animations
-const waterAnimIter = () => {
-    const path = WATER_PATHS[waterIdx];
+const animIter = () => {
+    const nextIdx = (animIdx + 1) % 4;
+
+    // animate water
+    const path = WATER_PATHS[animIdx];
     waterSnap.animate({ d: path }, 3000, mina.linear);
-    waterIdx = (waterIdx + 1) % WATER_PATHS.length;
-    timeouts.push(setTimeout(waterAnimIter, 3000));
-};
 
-// start all animations
-const startAnim = () => {
-    // start the water animation
-    waterAnimIter();
-
-    // set icon's animation style to null so it's inherited from CSS
+    // animate icons
+    const newClassName = `pos-${nextIdx}`;
+    const oldClassName = `pos-${animIdx}`;
     icons.forEach((icon) => {
-        icon.style.animation = null;
+        icon.classList.remove(oldClassName);
+        icon.classList.add(newClassName);
     });
+
+    animIdx = nextIdx;
+    timeouts.push(setTimeout(animIter, 3000));
 };
 
 // stop all animations
@@ -44,35 +45,15 @@ const stopAnim = () => {
     }
     // stop water animation and set to inital state
     waterSnap.stop();
-    waterIdx = 0;
+    animIdx = 0;
     waterPath.setAttribute(
         "d",
         "M1920 136.339H0V62C98.5 80.7826 240.789 110 412 110C566.526 110 741.993 118.565 898.5 84.3042C1076.65 45.3042 1181.79 17.0803 1511.5 2.08664C1786.37 -10.4132 1876.73 35.3036 1920 84.3042V136.339Z"
     );
-
-    // stop icon animation
-    icons.forEach((icon) => {
-        icon.style.animation = "none";
-        void icon.offsetWidth; // trigger reflow
-    });
 };
 
 // start up the animations
-startAnim();
-
-// store the timeout used when restarting animations
-let restartTimeout;
-// stop animations then start after a delay
-const restartAnim = () => {
-    stopAnim();
-    restartTimeout = setTimeout(startAnim, 50);
-};
-
-// on resize, cancel any previously queued restarts then restart animations
-window.onresize = () => {
-    clearTimeout(restartTimeout);
-    restartAnim();
-};
+animIter();
 
 /**
  *

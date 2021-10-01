@@ -129,7 +129,7 @@ header {
     }
 
     .boat {
-        z-index: -1;
+        z-index: -3;
         width: 25vw;
         height: 25vw;
         position: absolute;
@@ -137,14 +137,27 @@ header {
         bottom: 2vw;
         right: 0;
         transform-origin: center;
-        animation: boat-rock 12s linear infinite;
+        transition: transform 3s linear;
+    }
+    .boat.pos-0 {
+        transform: rotate(15deg) translateY(1vw);
+    }
+    .boat.pos-1 {
+        transform: rotate(10deg) translateY(6vw);
+    }
+    .boat.pos-2 {
+        transform: rotate(5deg) translateY(5vw);
+    }
+    .boat.pos-3 {
+        transform: rotate(-2deg) translateY(3vw);
     }
 }
 // projects styles
 .projects {
     background: $clr-primary-400;
     padding-top: 5rem;
-
+    position: relative;
+    z-index: -2;
     h3 {
         color: $clr-neutral;
         padding: 3rem $margin-sm 0rem $margin-sm;
@@ -157,11 +170,13 @@ header {
         margin: 3rem $margin-sm;
     }
 
-    // final project's margin it changed to padding
+    // final project's margin is changed to padding
     // so the background color extends
     .project:last-child {
         margin-bottom: 0;
         padding-bottom: 3rem;
+        // also give it a bit extra margin because the svg itself has no padding
+        margin-top: 5rem;
     }
 
     .project-text-box {
@@ -170,6 +185,30 @@ header {
         padding: 2rem 3rem 4rem 3rem;
         background: $clr-neutral;
         border-radius: 2rem;
+    }
+
+    .project-text-box::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 1rem;
+        z-index: -1;
+        border-radius: 2rem;
+    }
+
+    // projects are children 2, 3, 4 because the <h3> is child 1
+    .project:nth-child(2) .project-text-box::after {
+        left: 1rem;
+        background-color: $clr-cube;
+    }
+    .project:nth-child(3) .project-text-box::after {
+        right: 1rem;
+        background-color: $clr-starbattle;
+    }
+    .project:nth-child(4) .project-text-box::after {
+        left: 1rem;
+        background-color: $clr-search;
     }
 
     .project-links {
@@ -213,24 +252,5 @@ header {
             color: white;
             display: block;
         }
-    }
-}
-
-// keyframes for the boat rocking animation
-@keyframes boat-rock {
-    0% {
-        transform: rotate(15deg) translateY(1vw);
-    }
-    30% {
-        transform: rotate(10deg) translateY(6vw);
-    }
-    40% {
-        transform: rotate(7deg) transalteY(6vw);
-    }
-    55% {
-        transform: rotate(-2deg) translateY(5vw);
-    }
-    100% {
-        transform: rotate(15deg) translateY(1vw);
     }
 }
