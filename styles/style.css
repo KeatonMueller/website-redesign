@@ -209,14 +209,6 @@ header ul svg path {
   grid-column: 6/7;
 }
 
-.skills #water {
-  z-index: 1;
-  width: calc(100vw + 8px);
-  position: absolute;
-  bottom: -4px;
-  left: -4px;
-}
-
 .skills .boat {
   z-index: -3;
   width: 25vw;
@@ -253,11 +245,19 @@ header ul svg path {
           transform: rotate(-2deg) translateY(3vw);
 }
 
+#water,
+#deepwater {
+  z-index: 1;
+  width: calc(100vw + 8px);
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+}
+
 .projects {
   background: #009fcb;
   padding-top: 5rem;
   position: relative;
-  z-index: -2;
 }
 
 .projects h3 {
@@ -279,18 +279,21 @@ header ul svg path {
   margin: 3rem 4rem;
 }
 
-.projects .project:last-child {
+.projects .project:nth-child(4) {
   margin-bottom: 0;
-  padding-bottom: 3rem;
+  padding-bottom: calc(3rem + 15vw);
   margin-top: 5rem;
 }
 
 .projects .project-text-box {
   position: relative;
+  max-width: 700px;
   margin-top: 5rem;
   padding: 2rem 3rem 4rem 3rem;
   background: #ffffff;
   border-radius: 2rem;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
 .projects .project-text-box::after {
@@ -299,7 +302,8 @@ header ul svg path {
   height: 100%;
   position: absolute;
   top: 1rem;
-  z-index: -1;
+  -webkit-transform: translateZ(-1px);
+          transform: translateZ(-1px);
   border-radius: 2rem;
 }
 
@@ -337,7 +341,7 @@ header ul svg path {
 }
 
 .contact {
-  background: #009fcb;
+  background: #006e8c;
   padding-bottom: 5rem;
 }
 
@@ -426,22 +430,30 @@ header ul svg path {
   .projects .project-text-box {
     margin-top: 0;
   }
-  .projects .project:nth-child(even) {
+  .projects .project:nth-child(2),
+  .projects .project:nth-child(4) {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
-  .projects .project:nth-child(even) .project-img {
+  .projects .project:nth-child(2) .project-img,
+  .projects .project:nth-child(4) .project-img {
     margin-left: 5rem;
   }
-  .projects .project:nth-child(odd) {
+  .projects .project:nth-child(3) {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
-  .projects .project:nth-child(odd) .project-img {
+  .projects .project:nth-child(3) .project-img {
     margin-right: 3rem;
   }
   .projects .project:nth-child(2) .project-img {
@@ -458,7 +470,7 @@ header ul svg path {
 
 @media screen and (min-width: 930px) {
   .skills {
-    height: 50rem;
+    height: calc(24rem + 20vw);
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -682,6 +694,9 @@ header ul svg path {
   }
   .projects .project {
     margin: 5rem 8rem;
+  }
+  .projects .project-text-box {
+    max-width: 900px;
   }
   .contact h3 {
     padding: 3rem 8rem 1rem 8rem;

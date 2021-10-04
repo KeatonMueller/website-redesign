@@ -8,7 +8,7 @@ const WATER_PATHS = [
 
 // query for the svgs to animate
 const waterSnap = Snap.select("#water path");
-const waterPath = document.querySelector("#water path");
+const deepwaterSnap = Snap.select("#deepwater path");
 const icons = [...document.querySelectorAll(".skill-icons img")];
 icons.push(document.querySelector(".boat"));
 
@@ -17,13 +17,15 @@ let animIdx = 0;
 // variable to store all queued timeouts
 const timeouts = [];
 
-// cycle through the water animations
+// cycle through the animation states
 const animIter = () => {
     const nextIdx = (animIdx + 1) % 4;
 
     // animate water
-    const path = WATER_PATHS[animIdx];
-    waterSnap.animate({ d: path }, 3000, mina.linear);
+    const waterPath = WATER_PATHS[animIdx];
+    const deepwaterPath = WATER_PATHS[(animIdx + 2) % 4];
+    waterSnap.animate({ d: waterPath }, 3000, mina.linear);
+    deepwaterSnap.animate({ d: deepwaterPath }, 3000, mina.linear);
 
     // animate icons
     const newClassName = `pos-${nextIdx}`;
@@ -35,21 +37,6 @@ const animIter = () => {
 
     animIdx = nextIdx;
     timeouts.push(setTimeout(animIter, 3000));
-};
-
-// stop all animations
-const stopAnim = () => {
-    // clear any pending timeouts
-    while (timeouts.length) {
-        clearTimeout(timeouts.pop());
-    }
-    // stop water animation and set to inital state
-    waterSnap.stop();
-    animIdx = 0;
-    waterPath.setAttribute(
-        "d",
-        "M1920 136.339H0V62C98.5 80.7826 240.789 110 412 110C566.526 110 741.993 118.565 898.5 84.3042C1076.65 45.3042 1181.79 17.0803 1511.5 2.08664C1786.37 -10.4132 1876.73 35.3036 1920 84.3042V136.339Z"
-    );
 };
 
 // start up the animations

@@ -118,16 +118,6 @@ header {
         grid-column: 6/7;
     }
 
-    // this svg can be finicky. make sure it spans the width
-    // by making it larger than the viewport
-    #water {
-        z-index: 1;
-        width: calc(100vw + 8px);
-        position: absolute;
-        bottom: -4px;
-        left: -4px;
-    }
-
     .boat {
         z-index: -3;
         width: 25vw;
@@ -152,12 +142,24 @@ header {
         transform: rotate(-2deg) translateY(3vw);
     }
 }
+
+// these svgs can be finicky. make sure they spans the width
+// by making it larger than the viewport
+#water,
+#deepwater {
+    z-index: 1;
+    width: calc(100vw + 8px);
+    position: absolute;
+    bottom: -4px;
+    left: -4px;
+}
+
 // projects styles
 .projects {
     background: $clr-primary-400;
     padding-top: 5rem;
     position: relative;
-    z-index: -2;
+
     h3 {
         color: $clr-neutral;
         padding: 3rem $margin-sm 0rem $margin-sm;
@@ -172,19 +174,21 @@ header {
 
     // final project's margin is changed to padding
     // so the background color extends
-    .project:last-child {
+    .project:nth-child(4) {
         margin-bottom: 0;
-        padding-bottom: 3rem;
+        padding-bottom: calc(3rem + 15vw);
         // also give it a bit extra margin because the svg itself has no padding
         margin-top: 5rem;
     }
 
     .project-text-box {
         position: relative;
+        max-width: 700px;
         margin-top: 5rem;
         padding: 2rem 3rem 4rem 3rem;
         background: $clr-neutral;
         border-radius: 2rem;
+        transform-style: preserve-3d;
     }
 
     .project-text-box::after {
@@ -193,7 +197,7 @@ header {
         height: 100%;
         position: absolute;
         top: 1rem;
-        z-index: -1;
+        transform: translateZ(-1px);
         border-radius: 2rem;
     }
 
@@ -231,7 +235,7 @@ header {
 
 // contact styles
 .contact {
-    background: $clr-primary-400;
+    background: $clr-primary-600;
     padding-bottom: 5rem;
 
     h3 {

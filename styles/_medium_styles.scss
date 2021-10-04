@@ -65,15 +65,18 @@
             margin-top: 0;
         }
         // projects are children 2, 3, 4 because the <h3> is child 1
-        .project:nth-child(even) {
+        .project:nth-child(2),
+        .project:nth-child(4) {
             flex-direction: row;
+            justify-content: space-evenly;
             .project-img {
                 // cube and search need a bit more room than starbattle does
                 margin-left: 5rem;
             }
         }
-        .project:nth-child(odd) {
+        .project:nth-child(3) {
             flex-direction: row-reverse;
+            justify-content: space-evenly;
             .project-img {
                 margin-right: 3rem;
             }
@@ -98,7 +101,7 @@
 // rearrange skills at 930px
 @media screen and (min-width: 930px) {
     .skills {
-        height: 50rem;
+        height: calc(24rem + 20vw);
         position: relative;
         display: flex;
         flex-direction: column;
