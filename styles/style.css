@@ -289,7 +289,7 @@ header ul svg path {
   position: relative;
   max-width: 700px;
   margin-top: 5rem;
-  padding: 2rem 3rem 4rem 3rem;
+  padding: 2rem 3rem 6rem 3rem;
   background: #ffffff;
   border-radius: 2rem;
 }
@@ -319,7 +319,7 @@ header ul svg path {
 }
 
 .projects .project-links img {
-  width: 2rem;
+  width: 3rem;
   margin-left: 1rem;
 }
 
