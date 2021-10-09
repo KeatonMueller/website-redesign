@@ -2,7 +2,7 @@
  * Styles for screen sizes between 650px and 1000px
  */
 
-// introduce headshot for medium sized screens and up
+// introduce headshot and show anchor for medium sized screens and up
 @media screen and (min-width: 650px) {
     // change header icons to black
     header ul svg path {
@@ -52,6 +52,16 @@
             }
         }
     }
+
+    .contact {
+        #anchor {
+            display: unset;
+            position: absolute;
+            bottom: 5vw;
+            left: 10vw;
+            width: calc(min(10rem, 13vw));
+        }
+    }
 }
 
 // change projects to rows and rearrange contact at 700px
@@ -87,13 +97,9 @@
             transform: translateY(-2rem);
         }
     }
-
     .contact {
         h4 {
-            text-align: left;
-            a {
-                display: unset;
-            }
+            font-size: 3rem;
         }
     }
 }
@@ -232,6 +238,9 @@
                 transform: translateY(4.5vw);
             }
         }
+    }
+    .contact {
+        height: 60rem;
     }
 }
 

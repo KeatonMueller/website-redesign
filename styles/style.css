@@ -39,6 +39,7 @@ h2 {
 
 h3 {
   font-size: 3rem;
+  font-weight: 100;
 }
 
 h4 {
@@ -330,6 +331,17 @@ header ul svg path {
 .contact {
   background: #006e8c;
   padding-bottom: 5rem;
+  position: relative;
+  height: 50rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .contact h3 {
@@ -339,17 +351,64 @@ header ul svg path {
 }
 
 .contact h4 {
-  color: #ffffff;
-  text-align: center;
   margin: 3rem 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 100;
 }
 
 .contact h4 a {
-  font-family: "Sansita", sans-serif;
   text-decoration: none;
-  color: #002833;
-  color: white;
-  display: block;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.contact h4 a svg {
+  width: 4rem;
+  margin-left: 2rem;
+}
+
+.contact h4 a svg path {
+  fill: #ffffff;
+}
+
+.contact #anchor {
+  display: none;
+  z-index: 1;
+}
+
+.contact #ground {
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  width: calc(max(100vw + 8px), 375px);
+  float: left;
+}
+
+.contact .bottom {
+  width: 100%;
+  height: 8px;
+  position: absolute;
+  background-color: #003c4d;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
 }
 
 /**
@@ -408,6 +467,13 @@ header ul svg path {
     width: 100%;
     max-width: 32rem;
   }
+  .contact #anchor {
+    display: unset;
+    position: absolute;
+    bottom: 5vw;
+    left: 10vw;
+    width: calc(min(10rem, 13vw));
+  }
 }
 
 @media screen and (min-width: 700px) {
@@ -448,10 +514,7 @@ header ul svg path {
             transform: translateY(-2rem);
   }
   .contact h4 {
-    text-align: left;
-  }
-  .contact h4 a {
-    display: unset;
+    font-size: 3rem;
   }
 }
 
@@ -640,6 +703,9 @@ header ul svg path {
   .skills .skill-icons .skill-cpp.pos-3 {
     -webkit-transform: translateY(4.5vw);
             transform: translateY(4.5vw);
+  }
+  .contact {
+    height: 60rem;
   }
 }
 
