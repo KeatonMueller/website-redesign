@@ -69,6 +69,12 @@ header {
 header a {
   text-decoration: none;
   color: #ffffff;
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+}
+
+header a:hover {
+  color: #000000;
 }
 
 header ul {
@@ -98,6 +104,12 @@ header ul svg {
 
 header ul svg path {
   fill: #ffffff;
+  -webkit-transition: fill 0.25s;
+  transition: fill 0.25s;
+}
+
+header ul svg:hover path {
+  fill: #000000;
 }
 
 .about {
@@ -293,6 +305,10 @@ header ul svg path {
   padding: 2rem 3rem 6rem 3rem;
   background: #ffffff;
   border-radius: 2rem;
+  -webkit-transition: -webkit-box-shadow 0.25s;
+  transition: -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
 }
 
 .projects .project:nth-child(2) .project-text-box {
@@ -300,14 +316,44 @@ header ul svg path {
           box-shadow: 1rem 1rem 0 0 #ff0000;
 }
 
+.projects .project:nth-child(2) .project-text-box:hover {
+  -webkit-box-shadow: 2rem 2rem 0 0 #ff0000;
+          box-shadow: 2rem 2rem 0 0 #ff0000;
+}
+
+.projects .project:nth-child(2) .project-text-box:hover + img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .projects .project:nth-child(3) .project-text-box {
   -webkit-box-shadow: -1rem 1rem 0 0 #ffe100;
           box-shadow: -1rem 1rem 0 0 #ffe100;
 }
 
+.projects .project:nth-child(3) .project-text-box:hover {
+  -webkit-box-shadow: -2rem 2rem 0 0 #ffe100;
+          box-shadow: -2rem 2rem 0 0 #ffe100;
+}
+
+.projects .project:nth-child(3) .project-text-box:hover + img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .projects .project:nth-child(4) .project-text-box {
   -webkit-box-shadow: 1rem 1rem 0 0 #0fff27;
           box-shadow: 1rem 1rem 0 0 #0fff27;
+}
+
+.projects .project:nth-child(4) .project-text-box:hover {
+  -webkit-box-shadow: 2rem 2rem 0 0 #0fff27;
+          box-shadow: 2rem 2rem 0 0 #0fff27;
+}
+
+.projects .project:nth-child(4) .project-text-box:hover + img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .projects .project-links {
@@ -319,13 +365,65 @@ header ul svg path {
   display: flex;
 }
 
-.projects .project-links img {
+.projects .project-links svg {
   width: 3rem;
   margin-left: 1rem;
 }
 
+.projects .project-links svg path {
+  -webkit-transition: fill 0.25s;
+  transition: fill 0.25s;
+}
+
+.projects .project-links svg:hover path {
+  fill: #009fcb;
+}
+
 .projects .project-img {
   width: 20rem;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+}
+
+.projects .project-img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.projects .project-cube,
+.projects .project-search {
+  opacity: 0;
+  -webkit-transform: translateX(-25px);
+          transform: translateX(-25px);
+}
+
+.projects .project-starbattle {
+  opacity: 0;
+  -webkit-transform: translateX(25px);
+          transform: translateX(25px);
+}
+
+@-webkit-keyframes fade-in {
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+.fade-in-animation {
+  -webkit-animation: fade-in 1s forwards;
+          animation: fade-in 1s forwards;
 }
 
 .contact {
@@ -417,6 +515,9 @@ header ul svg path {
 @media screen and (min-width: 650px) {
   header ul svg path {
     fill: #000000;
+  }
+  header ul svg:hover path {
+    fill: #009fcb;
   }
   .about {
     display: -ms-grid;
@@ -512,6 +613,14 @@ header ul svg path {
   .projects .project:nth-child(2) .project-img {
     -webkit-transform: translateY(-2rem);
             transform: translateY(-2rem);
+  }
+  .projects .project:nth-child(2) .project-text-box:hover + img {
+    -webkit-transform: scale(1.1) translateY(-2rem);
+            transform: scale(1.1) translateY(-2rem);
+  }
+  .projects .project:nth-child(2) .project-img:hover {
+    -webkit-transform: scale(1.1) translateY(-2rem);
+            transform: scale(1.1) translateY(-2rem);
   }
   .contact h4 {
     font-size: 3rem;

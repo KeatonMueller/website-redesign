@@ -42,6 +42,20 @@ const animIter = () => {
 // start up the animations
 animIter();
 
+// create an observer that adds/removes fade-in-animation class
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in-animation");
+            return;
+        }
+        entry.target.classList.remove("fade-in-animation");
+    });
+});
+
+// observe the project text boxes
+document.querySelectorAll(".project").forEach((elt) => observer.observe(elt));
+
 /**
  *
  * =========================

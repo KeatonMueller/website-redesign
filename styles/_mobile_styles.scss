@@ -11,6 +11,10 @@ header {
     a {
         text-decoration: none;
         color: $clr-neutral;
+        transition: color 0.25s;
+    }
+    a:hover {
+        color: $clr-dark;
     }
 
     ul {
@@ -31,6 +35,13 @@ header {
             width: 2rem;
             path {
                 fill: $clr-neutral;
+                transition: fill 0.25s;
+            }
+        }
+
+        svg:hover {
+            path {
+                fill: $clr-dark;
             }
         }
     }
@@ -188,18 +199,37 @@ header {
         padding: 2rem 3rem 6rem 3rem;
         background: $clr-neutral;
         border-radius: 2rem;
+        transition: box-shadow 0.25s;
     }
 
     .project:nth-child(2) .project-text-box {
         box-shadow: 1rem 1rem 0 0 $clr-cube;
     }
+    .project:nth-child(2) .project-text-box:hover {
+        box-shadow: 2rem 2rem 0 0 $clr-cube;
+        + img {
+            transform: scale(1.1);
+        }
+    }
 
     .project:nth-child(3) .project-text-box {
         box-shadow: -1rem 1rem 0 0 $clr-starbattle;
     }
+    .project:nth-child(3) .project-text-box:hover {
+        box-shadow: -2rem 2rem 0 0 $clr-starbattle;
+        + img {
+            transform: scale(1.1);
+        }
+    }
 
     .project:nth-child(4) .project-text-box {
         box-shadow: 1rem 1rem 0 0 $clr-search;
+    }
+    .project:nth-child(4) .project-text-box:hover {
+        box-shadow: 2rem 2rem 0 0 $clr-search;
+        + img {
+            transform: scale(1.1);
+        }
     }
 
     .project-links {
@@ -209,15 +239,51 @@ header {
 
         display: flex;
 
-        img {
+        svg {
             width: 3rem;
             margin-left: 1rem;
+            path {
+                transition: fill 0.25s;
+            }
+        }
+
+        svg:hover path {
+            fill: $clr-primary-400;
         }
     }
 
     .project-img {
         width: 20rem;
+        transition: transform 0.25s;
     }
+
+    .project-img:hover {
+        transform: scale(1.1);
+    }
+
+    .project-cube,
+    .project-search {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    .project-starbattle {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+}
+
+// animation to show element and reset transform
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+// animation class to apply `fade-in` animation
+// gets added via js to projects when they come into view
+.fade-in-animation {
+    animation: fade-in 1s forwards;
 }
 
 // contact styles
