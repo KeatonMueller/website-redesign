@@ -14,8 +14,6 @@ icons.push(document.querySelector(".boat"));
 
 // variable to keep track of animation state
 let animIdx = 0;
-// variable to store all queued timeouts
-const timeouts = [];
 
 // cycle through the animation states
 const animIter = () => {
@@ -36,7 +34,7 @@ const animIter = () => {
     });
 
     animIdx = nextIdx;
-    timeouts.push(setTimeout(animIter, 3000));
+    setTimeout(animIter, 3000);
 };
 
 // start up the animations
@@ -55,44 +53,3 @@ const observer = new IntersectionObserver((entries) => {
 
 // observe the project text boxes
 document.querySelectorAll(".project").forEach((elt) => observer.observe(elt));
-
-/**
- *
- * =========================
- * ==== GSAP Animations ====
- * =========================
- *
- */
-
-// have projects fade in from below when scrolled to
-// const projects = ["cube", "starbattle", "search"];
-// projects.forEach((project) => {
-//     gsap.from(`.project-${project}`, {
-//         scrollTrigger: {
-//             trigger: `.project-${project}`,
-//             start: "center bottom",
-//             toggleActions: "play none none reverse",
-//         },
-//         y: 50,
-//         opacity: 0,
-//         duration: 0.75,
-//     });
-// });
-
-// gsap.from(".about-content", {
-//     opacity: 0,
-//     x: -20,
-//     y: -50,
-//     duration: 1,
-// });
-
-// gsap.from(".headshot", {
-//     opacity: 0,
-//     duration: 1,
-// });
-
-// gsap.from("header", {
-//     opacity: 0,
-//     duration: 0.5,
-//     delay: 0.75,
-// });
